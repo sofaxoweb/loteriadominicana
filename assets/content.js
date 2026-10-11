@@ -78,8 +78,9 @@ const GUIDES = {
 "la-suerte/quiniela-6pm": "El sorteo de las 6:00 PM repite la fórmula: 3 números del 00 al 99. Dos chances al día con La Suerte Dominicana.",
 
 /* ---------- Lotedom ---------- */
-"lotedom/quiniela": "La Quiniela Lotedom de la tarde: 3 números del 00 al 99 con el formato clásico de quiniela, palé y tripleta. Resultados publicados minutos después de la extracción.",
+"lotedom/quiniela": "La Quiniela Lotedom del mediodía: 3 números del 00 al 99 con el formato clásico de quiniela, palé y tripleta. Resultados publicados minutos después de la extracción.",
 "lotedom/quemaito": "El Quemaito Mayor es el número único más famoso del país: un solo bolo del 00 al 99. Lo juegas, sale tu número y ganas: así de directo. Muchos lo eligen según su sueño de la noche anterior.",
+"lotedom/agarra-4": "Agarra 4 es el juego de 4 números de Lotedom: se extraen cuatro bolos del 00 al 99 todos los días al mediodía. Combina la emoción de la quiniela con un cuarto número que multiplica las formas de ganar.",
 
 /* ---------- New York ---------- */
 "new-york/tarde": "El sorteo Midday de Nueva York extrae 3 números del 000 al 999 cada tarde. En EE. UU. se juega como Numbers (exacto o en cualquier orden); en República Dominicana se sigue como quiniela de 3 cifras.",
@@ -221,8 +222,9 @@ const GAME_INTROS = {
 "la-primera/lotto-5": `Lotto 5 es el juego de cinco números de <strong>La Primera</strong>, con sorteo a las 8:00 PM. El reto es acertar la combinación completa de la extracción nocturna. Mira los números ganadores de hoy en esta página.`,
 "la-suerte/quiniela": `Quiniela La Suerte es el sorteo del mediodía de <strong>La Suerte</strong>, a las 12:30 PM. Es una de las quinielas vespertinas más consultadas del país. Publicamos su resultado minutos después de cada extracción.`,
 "la-suerte/quiniela-6pm": `Quiniela La Suerte 6PM es el segundo sorteo del día de <strong>La Suerte</strong>, celebrado a las 6:00 PM. Da a los jugadores una nueva oportunidad en la tarde. Consulta aquí sus números ganadores.`,
-"lotedom/quiniela": `Quiniela Lotedom es el sorteo de <strong>Lotedom</strong> de las 1:55 PM. Forma parte de la tanda del mediodía dominicano junto a Real y La Primera. En LotoGana verás su resultado al momento.`,
-"lotedom/quemaito": `El Quemaito Mayor es el juego estrella de <strong>Lotedom</strong>, sorteado a las 1:55 PM. Su nombre lo ha convertido en uno de los juegos con más identidad del mediodía. Publicamos su resultado apenas termina la extracción.`,
+"lotedom/quiniela": `Quiniela Lotedom es el sorteo de <strong>Lotedom</strong> de las 12:00 PM. Forma parte de la tanda del mediodía dominicano junto a Real y La Primera. En LotoGana verás su resultado al momento.`,
+"lotedom/quemaito": `El Quemaito Mayor es el juego estrella de <strong>Lotedom</strong>, sorteado a las 12:00 PM. Su nombre lo ha convertido en uno de los juegos con más identidad del mediodía. Publicamos su resultado apenas termina la extracción.`,
+"lotedom/agarra-4": `Agarra 4 es el juego de cuatro números de <strong>Lotedom</strong>, sorteado todos los días a las 12:00 PM. En esta página publicamos los cuatro números ganadores minutos después de la extracción.`,
 "new-york/tarde": `New York Tarde es el sorteo vespertino de la <strong>lotería de Nueva York</strong> (NY Lottery), celebrado a las 2:30 PM hora local. Es muy seguido por la diáspora dominicana en Estados Unidos. Aquí encontrarás el resultado de hoy.`,
 "new-york/noche": `New York Noche es el sorteo nocturno de la <strong>lotería de Nueva York</strong>, a las 10:30 PM hora local. Cierra la jornada de sorteos estadounidenses que siguen los dominicanos. Consulta sus números ganadores en esta página.`,
 "florida/tarde": `Florida Tarde es el sorteo vespertino de la <strong>lotería de Florida</strong> (Florida Lottery), a las 1:30 PM hora local. Junto a New York, es de los sorteos de EE. UU. más consultados en República Dominicana. Mira el resultado de hoy aquí.`,
@@ -257,7 +259,7 @@ const LOTTERY_EXTRA = {
 "loteka": `Loteka ocupa la franja de las 7:55 PM con tres juegos: Quiniela Loteka, Mega Chance y Lotto Loteka. Es la antesala de los sorteos de las 8 y 9 de la noche y una de las tandas con más crecimiento de jugadores.`,
 "la-primera": `La Primera abre el mediodía a las 12:00 PM con su quiniela y cierra la noche a las 8:00 PM con la Quiniela Noche y el Lotto 5. Su doble tanda la hace una de las loterías con más presencia en el día.`,
 "la-suerte": `La Suerte ofrece dos oportunidades al día: su quiniela del mediodía a las 12:30 PM y la edición de las 6:00 PM. Es una de las loterías vespertinas con más tradición en bancas dominicanas.`,
-"lotedom": `Lotedom sortea a las 1:55 PM con dos juegos de fuerte identidad: la Quiniela Lotedom y El Quemaito Mayor. Su horario lo coloca justo después de la tanda del mediodía.`,
+"lotedom": `Lotedom sortea todos los días a las 12:00 PM con tres juegos: la Quiniela Lotedom, El Quemaito Mayor y Agarra 4. Su horario lo coloca en plena tanda del mediodía, junto a Real y La Primera.`,
 "new-york": `Los sorteos de New York (2:30 PM y 10:30 PM, hora local) son los más seguidos por la diáspora dominicana en Estados Unidos. Sus resultados se consultan masivamente cada día desde la República Dominicana.`,
 "florida": `Florida sortea a la 1:30 PM y a las 9:45 PM (hora local). Junto a New York, forma el dúo de loterías estadounidenses con más jugadores dominicanos, tanto en EE. UU. como en la isla.`,
 "anguila": `Anguila es la lotería caribeña de las cuatro tandas: 10:00 AM, 1:00 PM, 6:00 PM y 9:00 PM. Su frecuencia la convierte en una de las más consultadas durante todo el día.`,
