@@ -163,7 +163,95 @@ const ok = name => { n++; console.log("  ok:", name); };
   // 3. mapping: Quiniela Noche de la Nacional
   assert.strictEqual(titleToGame("Loteria Nacional- Noche"), "nacional/quiniela-noche", "mapeo quiniela noche");
 
-  ok("regresión: fecha con whitespace, fechas distintas, mapeo noche");
+  // 4. verify: bolo rojo decorativo (sorteosrd) cuenta como número normal si el juego no es SPECIAL_GAMES
+  const Ad = [{ source: "A", gameId: "lotedom/agarra-4", dateISO: "2026-10-11",
+    balls: [{ n: "94", special: "" }, { n: "78", special: "" }, { n: "49", special: "" }, { n: "69", special: "red" }] }];
+  const Bd = [{ source: "B", gameId: "lotedom/agarra-4", dateISO: "2026-10-11",
+    balls: [{ n: "94", special: "" }, { n: "78", special: "" }, { n: "49", special: "" }, { n: "69", special: "rojo" }] }];
+  const vd = verify(Ad, Bd);
+  assert.strictEqual(vd.verified.length, 1, "rojo decorativo no rompe la verificación");
+  assert.strictEqual(vd.conflicts.length, 0, "sin conflicto con rojo decorativo");
+
+  ok("regresión: fecha con whitespace, fechas distintas, mapeo noche, rojo decorativo");
+}
+
+/* ---------- regresión: bugs auditoría 2026-10-11 (orden oficial) ---------- */
+{
+  const { parseA } = require("./parseA");
+  const { verify, origDraw, canon } = require("./verify");
+  const ord = ns => ns.map(n => ({ n, special: "" }));
+
+  // 1. verify conserva el orden OFICIAL de la fuente A (1ro/2do/3ro),
+  //    aunque B traiga otro orden: no se publica "ordenado".
+  const A = [{ source: "A", gameId: "leidsa/quiniela-pale", dateISO: "2026-10-10", balls: ord(["47", "55", "19"]) }];
+  const B = [{ source: "B", gameId: "leidsa/quiniela-pale", dateISO: "2026-10-10", balls: ord(["19", "47", "55"]) }];
+  const v = verify(A, B);
+  assert.strictEqual(v.verified.length, 1, "verificado");
+  assert.deepStrictEqual(v.verified[0].n, ["47", "55", "19"], "orden oficial de A preservado");
+
+  // 2. origDraw no ordena; canon sí (solo para comparar).
+  const od = origDraw(A[0]);
+  assert.deepStrictEqual(od.nums, ["47", "55", "19"], "origDraw conserva orden");
+  const cn = canon(A[0]);
+  assert.deepStrictEqual(cn.nums, ["19", "47", "55"], "canon ordena para comparar");
+
+  // 3. idempotencia insensible al orden: re-aplicar el mismo sorteo con
+  //    otro orden NO duplica (segunda pasada corrige el orden).
+  const os = require("os");
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "lg-ord-"));
+  const dataCopy = path.join(tmp, "data.js");
+  fs.copyFileSync(path.join(__dirname, "..", "..", "assets", "data.js"), dataCopy);
+  const updSrc = fs.readFileSync(path.join(__dirname, "update.js"), "utf8")
+    .replace(/const DATA = .*;/, `const DATA = ${JSON.stringify(dataCopy)};`)
+    .replace(/const BUILD = .*;/, `const BUILD = ${JSON.stringify(path.join(__dirname, "..", "build.js"))};`);
+  const updPath = path.join(tmp, "update.js");
+  fs.writeFileSync(updPath, updSrc);
+  delete require.cache[updPath];
+  const { applyUpdates } = require(updPath);
+  const load = () => new Function(fs.readFileSync(dataCopy, "utf8") + "\nreturn {LOTERIAS};")()
+    .LOTERIAS.find(l => l.id === "leidsa").games.find(x => x.id === "quiniela-pale");
+
+  let r = applyUpdates([{ gameId: "leidsa/quiniela-pale", d: "2026-10-10", n: ["47", "55", "19"] }]);
+  assert.strictEqual(load().draws.filter(x => x.d === "2026-10-10").length, 1, "sin duplicados misma fecha");
+  r = applyUpdates([{ gameId: "leidsa/quiniela-pale", d: "2026-10-10", n: ["19", "47", "55"] }]);
+  const rows = load().draws.filter(x => x.d === "2026-10-10");
+  assert.strictEqual(rows.length, 1, "re-orden no duplica");
+  assert.deepStrictEqual(rows[0].n, ["19", "47", "55"], "el orden de la fuente manda");
+  r = applyUpdates([{ gameId: "leidsa/quiniela-pale", d: "2026-10-10", n: ["19", "47", "55"] }]);
+  assert.strictEqual(r.applied.length, 0, "tercera pasada: ya actualizado");
+
+  // 4. limpieza de duplicados preexistentes (misma fecha, distinto orden).
+  const srcTxt = fs.readFileSync(dataCopy, "utf8")
+    .replace('{ d: "2026-10-10", n: ["19","47","55"] }',
+             '{ d: "2026-10-10", n: ["19","47","55"] }, { d: "2026-10-10", n: ["47","55","19"] }');
+  fs.writeFileSync(dataCopy, srcTxt);
+  assert.strictEqual(load().draws.filter(x => x.d === "2026-10-10").length, 2, "duplicado simulado");
+  r = applyUpdates([{ gameId: "leidsa/quiniela-pale", d: "2026-10-10", n: ["47", "55", "19"] }]);
+  const clean = load().draws.filter(x => x.d === "2026-10-10");
+  assert.strictEqual(clean.length, 1, "duplicado eliminado");
+  assert.deepStrictEqual(clean[0].n, ["47", "55", "19"], "queda el orden oficial");
+  assert.ok(r.applied[0] && /orden|duplicados/.test(r.applied[0].note || ""), "reporta limpieza");
+  fs.rmSync(tmp, { recursive: true, force: true });
+
+  // 5. americanas: ball-red → bonus (no a la base) + extra "2X".
+  const pbHtml = `<div class="result-item col-12"><div class="col-12 result-item-title"><h4>Power Ball</h4></div>` +
+    `<div class="ball"><span>01</span></div><div class="ball"><span>04</span></div><div class="ball"><span>19</span></div>` +
+    `<div class="ball"><span>33</span></div><div class="ball"><span>51</span></div><div class="ball-red"><span>15</span></div>` +
+    `<div class="square"><span>2X</span></div>` +
+    `<div class="x result-item-date"><span><i></i>&nbsp;10-10-2026</span></div></div>`;
+  const pg = parseA(pbHtml);
+  assert.strictEqual(pg.length, 1, "powerball parseado");
+  assert.strictEqual(pg[0].gameId, "americanas/Powerball");
+  assert.strictEqual(pg[0].extra, "2X", "extra Power Play extraído");
+  const cpb = canon(pg[0]);
+  assert.deepStrictEqual(cpb.nums, ["01", "04", "19", "33", "51"], "base sin la PB");
+  assert.strictEqual(cpb.bonus, "15", "PB como bonus");
+  const vpb = verify(pg, []);
+  assert.strictEqual(vpb.single[0].bonus, "15", "single conserva bonus");
+  assert.strictEqual(vpb.single[0].extra, "2X", "single conserva extra");
+  assert.deepStrictEqual(vpb.single[0].n, ["01", "04", "19", "33", "51"], "single conserva orden");
+
+  ok("regresión: orden oficial, idempotencia, dedupe, americanas bonus/extra");
 }
 
 console.log(`\nTODOS LOS TESTS PASARON (${n})`);

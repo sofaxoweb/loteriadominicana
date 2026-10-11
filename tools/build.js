@@ -19,6 +19,20 @@ const NAV = [
 /* Dominio real del sitio — CAMBIAR al desplegar (se usa en sitemap.xml). */
 const BASE_URL = "https://lotogana.example.com";
 
+/* Horarios: algunos juegos cambian de hora según el día (ej. Leidsa los domingos). */
+const DIA_NOM = { 0: "dom", 1: "lun", 2: "mar", 3: "mié", 4: "jue", 5: "vie", 6: "sáb" };
+function timeText(g) {
+  if (!g.altTimes) return g.time;
+  const alt = Object.entries(g.altTimes).map(([d, t]) => `${DIA_NOM[d]} ${t}`).join(", ");
+  return `${g.time} (${alt})`;
+}
+function countdownAttrs(g) {
+  let s = `data-countdown="${g.time}"`;
+  if (g.days) s += ` data-days="${g.days.join(",")}"`;
+  if (g.altTimes) s += ` data-alt="${Object.entries(g.altTimes).map(([d, t]) => d + ":" + t).join(";")}"`;
+  return s;
+}
+
 function header(rel, active, title, metaDesc, extraHead = "") {
   const links = NAV.map(([href, label]) =>
     `<a href="${rel}${href}" class="${active === href ? "active" : ""}">${label}</a>`).join("");
@@ -92,7 +106,7 @@ function faqJSON(faqs) {
 }
 
 function lotteryFAQs(lot) {
-  const times = lot.games.map(g => `${g.name} (${g.time})`).join(", ");
+  const times = lot.games.map(g => `${g.name} (${timeText(g)})`).join(", ");
   const g0 = lot.games[0];
   const jack = lot.games.find(g => g.jackpot);
   return [
@@ -119,12 +133,12 @@ function operatorPage(lot) {
       `<tr><td>${fmtD(d.d)}</td><td>${d.n.join(" - ")}${d.bonus ? " · Más " + d.bonus : ""}${d.super ? " · Súper " + d.super : ""}</td></tr>`).join("");
     games += `<div class="card" id="${g.id}">
       <div class="card-head"><span class="badge" style="background:${lot.color}">${lot.name.slice(0,2).toUpperCase()}</span>
-      <h3><a href="${g.id}/">${g.name}</a></h3><span class="time">${g.time}</span></div>
+      <h3><a href="${g.id}/">${g.name}</a></h3><span class="time">${timeText(g)}</span></div>
       <div class="card-body">
         <div class="balls">${ballsHTML(latest, g.kind)}</div>
         <div class="meta" style="font-size:.8rem;color:#5b6b60;margin-top:8px">Sorteo del <span data-fmt-date="${latest.d}">${latest.d}</span></div>
         ${g.jackpot ? `<div class="jackpot">Premio acumulado: ${g.jackpot}</div>` : ""}
-        <div class="countdown" data-countdown="${g.time}"${g.days ? ` data-days="${g.days.join(",")}"` : ""}></div>
+        <div class="countdown" ${countdownAttrs(g)}></div>
         <div class="guide"><strong>¿Cómo se juega?</strong> ${GUIDES[lot.id + "/" + g.id] || g.guide}</div>
         ${g.draws.length > 1 ? `<table class="hist"><tr><th>Fecha</th><th>Números</th></tr>${hist}</table>` : ""}
       </div></div>`;
@@ -158,11 +172,11 @@ function operatorPage(lot) {
 function gameFAQsExtra(lot, g) {
   const faqs = [
     { q: `¿A qué hora se publica el resultado de ${g.name} en LotoGana?`,
-      a: `El sorteo de ${g.name} es a las ${g.time}. Nuestro sistema lo publica en esta página minutos después de la extracción, una vez verificado contra dos fuentes independientes.` },
+      a: `El sorteo de ${g.name} es a las ${timeText(g)}. Nuestro sistema lo publica en esta página minutos después de la extracción, una vez verificado contra dos fuentes independientes.` },
   ];
   if (g.kind === "trio") {
     faqs.push({ q: `¿Qué se puede jugar en ${g.name}: quiniela, palé o tripleta?`,
-      a: `En ${g.name} puedes jugar la quiniela (un número de dos cifras), el palé (dos números combinados) y la tripleta (tres números). Ganas si tu jugada coincide con los números de la extracción de las ${g.time}.` });
+      a: `En ${g.name} puedes jugar la quiniela (un número de dos cifras), el palé (dos números combinados) y la tripleta (tres números). Ganas si tu jugada coincide con los números de la extracción de las ${timeText(g)}.` });
   } else if (g.kind === "billete") {
     faqs.push({ q: `¿Cómo se gana en ${g.name}?`,
       a: `En ${g.name} juegas con un billete impreso de 6 cifras. Si tu número coincide con el 1ro, 2do o 3er premio del sorteo dominical de las ${g.time}, ganas el premio correspondiente.` });
@@ -178,7 +192,7 @@ function gameFAQs(lot, g) {
   const plainGuide = (GUIDES[lot.id + "/" + g.id] || g.guide).replace(/<[^>]+>/g, "");
   return [
     { q: `¿A qué hora es el sorteo de ${g.name}?`,
-      a: `El sorteo de ${g.name} (${lot.name}) se celebra a las ${g.time}. En esta página tienes la cuenta regresiva en vivo y el resultado se publica minutos después de la extracción.` },
+      a: `El sorteo de ${g.name} (${lot.name}) se celebra a las ${timeText(g)}. En esta página tienes la cuenta regresiva en vivo y el resultado se publica minutos después de la extracción.` },
     { q: `¿Cómo se juega ${g.name}?`, a: plainGuide },
     { q: `¿Dónde ver los resultados de ${g.name} de hoy?`,
       a: `Aquí mismo, en LotoGana: publicamos los números ganadores de ${g.name} apenas termina el sorteo, junto con el historial de sorteos anteriores. También puedes ver todos los juegos de ${lot.name} en su página.` },
@@ -192,7 +206,7 @@ function gamePage(lot, g) {
   const faqs = gameFAQs(lot, g).concat(gameFAQsExtra(lot, g));
   const intro = GAME_INTROS[lot.id + "/" + g.id] || "";
   const title = `${g.name} (${lot.name}) — resultados de hoy | LotoGana`;
-  const meta = `Resultados de hoy de ${g.name} (${lot.name}): números ganadores del ${fmtD(latest.d)}, horario ${g.time}, historial completo y cómo jugar.`;
+  const meta = `Resultados de hoy de ${g.name} (${lot.name}): números ganadores del ${fmtD(latest.d)}, horario ${timeText(g)}, historial completo y cómo jugar.`;
   const hist = g.draws.map(d =>
     `<tr><td>${fmtD(d.d)}</td><td>${d.n.join(" - ")}${d.bonus ? " · Más " + d.bonus : ""}${d.super ? " · Súper " + d.super : ""}</td></tr>`).join("");
   const others = lot.games
@@ -204,15 +218,15 @@ function gamePage(lot, g) {
   <div class="section">
     <p style="font-size:.85rem;color:#5b6b60;margin-bottom:10px"><a href="${rel}">Inicio</a> · <a href="${rel}loteria/">Loterías</a> · <a href="../">${lot.name}</a> · ${g.name}</p>
     <h2><span class="badge" style="background:${lot.color}">${lot.name.slice(0,2).toUpperCase()}</span> ${g.name} — resultados de hoy</h2>
-    <p class="sub">${lot.name} · sorteo de las ${g.time}</p>
+    <p class="sub">${lot.name} · sorteo de las ${timeText(g)}</p>
     <div class="card">
       <div class="card-head"><span class="badge" style="background:${lot.color}">${lot.name.slice(0,2).toUpperCase()}</span>
-      <h3>Último sorteo</h3><span class="time">${g.time}</span></div>
+      <h3>Último sorteo</h3><span class="time">${timeText(g)}</span></div>
       <div class="card-body">
         <div class="balls">${ballsHTML(latest, g.kind)}</div>
         <div class="meta" style="font-size:.85rem;color:#5b6b60;margin-top:8px">Sorteo del <span data-fmt-date="${latest.d}">${latest.d}</span></div>
         ${g.jackpot ? `<div class="jackpot">Premio acumulado: ${g.jackpot}</div>` : ""}
-        <div class="countdown" data-countdown="${g.time}"${g.days ? ` data-days="${g.days.join(",")}"` : ""}></div>
+        <div class="countdown" ${countdownAttrs(g)}></div>
       </div>
     </div>
     <div class="adslot">Espacio publicitario</div>
@@ -268,10 +282,10 @@ function gameCardHTML(lot, g) {
   if (!g.draws || !g.draws.length) return "";
   const latest = g.draws[0];
   return `<div class="game">
-    <div class="game-top"><strong><a href="loteria/${lot.id}/${g.id}/">${g.name}</a></strong><span class="meta">${g.time} · <span data-fmt-date="${latest.d}">${latest.d}</span></span></div>
+    <div class="game-top"><strong><a href="loteria/${lot.id}/${g.id}/">${g.name}</a></strong><span class="meta">${timeText(g)} · <span data-fmt-date="${latest.d}">${latest.d}</span></span></div>
     <div class="balls">${ballsHTML(latest, g.kind)}</div>
     ${g.jackpot ? `<div class="jackpot">Acumulado: ${g.jackpot}</div>` : ""}
-    <div class="countdown" data-countdown="${g.time}"${g.days ? ` data-days="${g.days.join(",")}"` : ""}></div>
+    <div class="countdown" ${countdownAttrs(g)}></div>
   </div>`;
 }
 

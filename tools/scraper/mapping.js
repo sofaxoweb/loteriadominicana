@@ -29,6 +29,7 @@ const TITLE_TO_GAME = {
   "quiniela la suerte 6pm": "la-suerte/quiniela-6pm",
   "quiniela lotedom": "lotedom/quiniela",
   "el quemaito mayor": "lotedom/quemaito",
+  "agarra 4": "lotedom/agarra-4",
   "new york tarde": "new-york/tarde",
   "new york noche": "new-york/noche",
   "florida tarde": "florida/tarde",
@@ -55,12 +56,19 @@ const LOGO_TO_GAME = {
   "tufechareal": "real/tu-fecha",
   "lotoreal1": "real/loto-real",
   "pegamasjuegamas": "nacional/juega-mas-pega-mas",
+  "agarra4": "lotedom/agarra-4",
+  "quinielalotedom": "lotedom/quiniela",
+  "quemaito": "lotedom/quemaito",
 };
 
-/* Juegos con bolos especiales (bonus/super) en nuestro modelo */
+/* Juegos con bolos especiales (bonus/super) en nuestro modelo.
+   En loteriadominicana el primer bolo especial (ball-red) es el bonus
+   (Mega Ball / Powerball / Extra); el segundo (ball-yellow), el super. */
 const SPECIAL_GAMES = {
   "leidsa/loto": { bonus: true, super: true },
   "loteka/lotto-loteka": { bonus: true, super: true },
+  "americanas/Mega Millions": { bonus: true },
+  "americanas/Powerball": { bonus: true },
 };
 
 function titleToGame(title) { return TITLE_TO_GAME[norm(title)] || null; }

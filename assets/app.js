@@ -20,12 +20,14 @@ if(menuBtn && navLinks){ menuBtn.addEventListener("click", () => navLinks.classL
 document.querySelectorAll("[data-fmt-date]").forEach(el => { el.textContent = fmtDate(el.getAttribute("data-fmt-date")); });
 
 /* ---------- cuenta regresiva ---------- */
-function nextDraw(timeStr, days){
+function nextDraw(timeStr, days, alt){
   const now = new Date();
-  const [h, m] = timeStr.split(":").map(Number);
   for(let add = 0; add < 8; add++){
-    const d = new Date(now); d.setDate(d.getDate()+add); d.setHours(h, m, 0, 0);
+    const d = new Date(now); d.setDate(d.getDate()+add);
     if(days && days.length && !days.includes(d.getDay())) continue;
+    const t = (alt && alt[d.getDay()]) || timeStr;
+    const [h, m] = t.split(":").map(Number);
+    d.setHours(h, m, 0, 0);
     if(d > now) return d;
   }
   return null;
@@ -34,15 +36,17 @@ function tick(){
   document.querySelectorAll("[data-countdown]").forEach(el => {
     const daysAttr = el.getAttribute("data-days");
     const days = daysAttr ? daysAttr.split(",").map(Number) : null;
-    const target = nextDraw(el.getAttribute("data-countdown"), days);
+    const altAttr = el.getAttribute("data-alt");
+    const alt = altAttr ? Object.fromEntries(altAttr.split(";").map(p => p.split(":"))) : null;
+    const target = nextDraw(el.getAttribute("data-countdown"), days, alt);
     if(!target){ el.innerHTML = ""; return; }
     let s = Math.floor((target - new Date())/1000);
     const h = Math.floor(s/3600), m = Math.floor(s%3600/60), ss = s%60;
     const startOfToday = new Date(); startOfToday.setHours(0,0,0,0);
     const dayDiff = Math.round((new Date(target.toDateString()) - startOfToday) / 86400000);
     const when = dayDiff <= 0 ? "hoy" : dayDiff === 1 ? "mañana" : ("en " + dayDiff + " días");
-    el.innerHTML = "Próximo sorteo: <b>" + when + " " +
-      el.getAttribute("data-countdown") + "</b> · faltan <b>" +
+    const tShown = String(target.getHours()).padStart(2,"0") + ":" + String(target.getMinutes()).padStart(2,"0");
+    el.innerHTML = "Próximo sorteo: <b>" + when + " " + tShown + "</b> · faltan <b>" +
       String(h).padStart(2,"0")+":"+String(m).padStart(2,"0")+":"+String(ss).padStart(2,"0") + "</b>";
   });
 }

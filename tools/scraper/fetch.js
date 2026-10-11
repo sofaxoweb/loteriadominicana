@@ -5,6 +5,7 @@ const SOURCES = {
     "https://www.sorteosrd.com/realsorteos",
     "https://www.sorteosrd.com/sorteosleidsa",
     "https://www.sorteosrd.com/nacionalsorteos",
+    "https://www.sorteosrd.com/sorteoslotedom",
   ],
 };
 
