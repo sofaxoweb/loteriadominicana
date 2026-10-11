@@ -59,6 +59,7 @@ function footer(rel) {
   </div>
   <div><h4>Nosotros</h4>
     <a href="${rel}nosotros/">Quiénes somos</a>
+    <a href="${rel}autor/martin/">Nuestro equipo</a>
     <a href="${rel}contacto/">Contacto</a>
     <a href="${rel}privacidad/">Privacidad</a>
   </div>
@@ -401,7 +402,7 @@ console.log("ok index.html (portada)");
       .forEach(g => urls.push(`loteria/${lot.id}/${g.id}/`));
   });
   ["loteria/", "verificador/", "suenos/", "numeros/", "predicciones/",
-   "nosotros/", "contacto/", "privacidad/"].forEach(p => urls.push(p));
+   "nosotros/", "contacto/", "privacidad/", "autor/martin/"].forEach(p => urls.push(p));
   const xml = urls.map(u =>
     `  <url><loc>${BASE_URL}/${u}</loc><changefreq>hourly</changefreq></url>`).join("\n");
   fs.writeFileSync(path.join(ROOT, "sitemap.xml"),

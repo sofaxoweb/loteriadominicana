@@ -4,7 +4,8 @@
   <url><loc>https://lotogana.example.com/loteria/nacional/</loc><changefreq>hourly</changefreq></url>
   <url><loc>https://lotogana.example.com/loteria/nacional/gana-mas/</loc><changefreq>hourly</changefreq></url>
   <url><loc>https://lotogana.example.com/loteria/nacional/quiniela-noche/</loc><changefreq>hourly</changefreq></url>
-  <url><loc>https://lotogana.example.com/loteria/nacional/pega-3-mas/</loc><changefreq>hourly</changefreq></url>
+  <url><loc>https://lotogana.example.com/loteria/nacional/juega-mas-pega-mas/</loc><changefreq>hourly</changefreq></url>
+  <url><loc>https://lotogana.example.com/loteria/nacional/billetes-quinielas/</loc><changefreq>hourly</changefreq></url>
   <url><loc>https://lotogana.example.com/loteria/leidsa/</loc><changefreq>hourly</changefreq></url>
   <url><loc>https://lotogana.example.com/loteria/leidsa/quiniela-pale/</loc><changefreq>hourly</changefreq></url>
   <url><loc>https://lotogana.example.com/loteria/leidsa/pega-3-mas/</loc><changefreq>hourly</changefreq></url>
@@ -71,4 +72,5 @@
   <url><loc>https://lotogana.example.com/nosotros/</loc><changefreq>hourly</changefreq></url>
   <url><loc>https://lotogana.example.com/contacto/</loc><changefreq>hourly</changefreq></url>
   <url><loc>https://lotogana.example.com/privacidad/</loc><changefreq>hourly</changefreq></url>
+  <url><loc>https://lotogana.example.com/autor/martin/</loc><changefreq>hourly</changefreq></url>
 </urlset>

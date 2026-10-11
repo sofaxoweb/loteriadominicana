@@ -274,6 +274,7 @@ const METHODOLOGY = `<h2>Cómo verificamos los resultados</h2>
 <p>En <strong>LotoGana</strong> no publicamos un resultado hasta estar seguros de que es correcto. Nuestro sistema automático consulta <strong>dos fuentes independientes</strong> de resultados cada 30 minutos, durante todo el horario de sorteos.</p>
 <p>El proceso es el siguiente: se extraen los números de ambas fuentes, se <strong>comparan cifra por cifra y se verifica que la fecha del sorteo coincida</strong>. Solo cuando los dos coinciden, el resultado se publica en esta página. Si hay cualquier diferencia —o si una fuente falla— el resultado <strong>no se publica</strong> y se genera una alerta para revisión manual.</p>
 <p>Esto significa que un número erróneo nunca llega a tu pantalla por un error de una sola fuente. La verificación cruzada es nuestra garantía de precisión.</p>
+<p style="font-size:.85rem;color:#5b6b60">Supervisado por <a href="autor/martin/">Martin</a>, editor y verificador de resultados de LotoGana.</p>
 </div></div>`;
 
 /* ===== RESPONSIBLE: juego responsable (política de Google) ===== */
