@@ -32,6 +32,7 @@
   <url><loc>https://lotogana.example.com/loteria/lotedom/</loc><changefreq>hourly</changefreq></url>
   <url><loc>https://lotogana.example.com/loteria/lotedom/quiniela/</loc><changefreq>hourly</changefreq></url>
   <url><loc>https://lotogana.example.com/loteria/lotedom/quemaito/</loc><changefreq>hourly</changefreq></url>
+  <url><loc>https://lotogana.example.com/loteria/lotedom/agarra-4/</loc><changefreq>hourly</changefreq></url>
   <url><loc>https://lotogana.example.com/loteria/new-york/</loc><changefreq>hourly</changefreq></url>
   <url><loc>https://lotogana.example.com/loteria/new-york/tarde/</loc><changefreq>hourly</changefreq></url>
   <url><loc>https://lotogana.example.com/loteria/new-york/noche/</loc><changefreq>hourly</changefreq></url>
