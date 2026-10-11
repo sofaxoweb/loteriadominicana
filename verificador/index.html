@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verificador de jugadas — ¿Ganaste? | LotoGana</title>
+<meta name="description" content="¿Ganaste la lotería? Escribe tus números y nuestro verificador los compara al instante con los últimos sorteos de todas las loterías dominicanas.">
+<link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <span class="live"><span class="dot"></span> Resultados actualizados</span>
+  <span>República Dominicana</span>
+</div></div>
+<header class="site"><div class="nav">
+  <a class="brand" href="../"><img src="../assets/logo.svg" alt="LotoGana"><span>LotoGana<small>Resultados de loterías dominicanas al instante</small></span></a>
+  <button class="menu-btn" id="menuBtn" aria-label="Menú">☰</button>
+  <nav class="links" id="navLinks">
+    <a href="../">Inicio</a><a href="../loteria/">Loterías</a><a href="../verificador/" class="active">Verificador</a>
+    <a href="../suenos/">Sueños</a><a href="../numeros/">Números</a><a href="../predicciones/">Predicciones</a>
+  </nav>
+</div></header>
+<main class="wrap">
+  <div class="section">
+    <h2>🎯 Verificador de jugadas</h2>
+    <p class="sub">Escribe tus números separados por comas o espacios y descubre si coinciden con los últimos sorteos publicados.</p>
+    <div class="card"><div class="card-body">
+      <form id="verificadorForm">
+        <div class="field">
+          <label for="misNumeros">Tus números</label>
+          <input type="text" id="misNumeros" placeholder="Ej: 23, 93, 24" autocomplete="off">
+        </div>
+        <button class="btn" type="submit">Verificar</button>
+      </form>
+      <div id="verificadorResultado" style="margin-top:16px"></div>
+    </div></div>
+    <div class="guide" style="margin-top:16px"><strong>¿Cómo funciona?</strong> Comparamos tus números con el último sorteo publicado de cada juego (quinielas, palés, lotos y más). Si hay coincidencia, verás el sorteo resaltado en dorado. Recuerda verificar siempre tu ticket con tu banca.</div>
+  </div>
+</main>
+<footer class="site"><div class="wrap">
+  <div><h4>LotoGana</h4><p>Resultados de loterías dominicanas al instante.</p></div>
+  <div><h4>Herramientas</h4><a href="../verificador/">Verificador de jugadas</a><a href="../suenos/">Sueños y charada</a><a href="../numeros/">Números calientes</a><a href="../predicciones/">Predicciones</a></div>
+  <div><h4>Nosotros</h4><a href="../nosotros/">Quiénes somos</a><a href="../contacto/">Contacto</a><a href="../privacidad/">Privacidad</a></div>
+</div><div class="copy">© 2026 LotoGana · Juega responsablemente · Solo +18</div></footer>
+<script src="../assets/data.js"></script>
+<script src="../assets/app.js"></script>
+</body></html>
