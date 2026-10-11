@@ -20,7 +20,7 @@ const SITE = {
 const LOTERIAS = [
   {
     id: "nacional", name: "Lotería Nacional", color: "#1d4ed8", country: "do",
-    desc: "La lotería oficial del Estado dominicano. Sus sorteos Gana Más (tarde) y la Quiniela de la Noche son de los más jugados del país.",
+    desc: "La lotería oficial del Estado dominicano. Gana Más y Juega Más Pega Más en la tarde, la Quiniela de la Noche y el sorteo dominical de Billetes y Quinielas.",
     games: [
       { id: "gana-mas", name: "Gana Más", time: "14:30", kind: "trio",
         guide: "Se extraen 3 números del 00 al 99. Ganas con quiniela (los 3 en orden), palé (2) o tripleta según tu jugada.",
@@ -28,9 +28,12 @@ const LOTERIAS = [
       { id: "quiniela-noche", name: "Quiniela Noche", time: "21:00", kind: "trio",
         guide: "El sorteo nocturno de la Nacional: 3 números del 00 al 99, todos los días a las 9:00 PM.",
         draws: [ { d: "2026-10-10", n: ["30","47","97"] } ] },
-      { id: "pega-3-mas", name: "Pega 3 Más", time: "14:30", kind: "trio",
-        guide: "Tres números del 00 al 99. Premia la quiniela exacta y combinaciones palé.",
-        draws: [ { d: "2026-10-10", n: ["05","08","04","18","21"] } ] }
+      { id: "juega-mas-pega-mas", name: "Juega Más Pega Más", time: "14:30", kind: "balls",
+        guide: "Cinco números de tres tómbolas (azul, roja y blanca). El premio mayor es por acertar los 5; también premian 4, 3 y 2 aciertos.",
+        draws: [ { d: "2026-10-10", n: ["05","08","04","18","21"] } ] },
+      { id: "billetes-quinielas", name: "Billetes y Quinielas", time: "18:00", days: [0], kind: "billete",
+        guide: "Sorteo especial de los domingos: 3 premios principales de 6 cifras (1ro, 2do y 3ro). Juegas con tu billete impreso.",
+        draws: [ { d: "2026-09-27", n: ["326883","378130","382173"] } ] }
     ]
   },
   {
