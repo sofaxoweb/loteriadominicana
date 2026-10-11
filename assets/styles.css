@@ -57,6 +57,7 @@ nav.links a:hover,nav.links a.active{background:rgba(255,255,255,.16);text-decor
 .ball.gold{background:var(--gold);color:#4a3400}
 .ball.big{min-width:52px;height:52px;font-size:1.25rem}
 .ball-label{font-size:.75rem;color:var(--muted);font-weight:700;margin:0 2px}
+.ball.long{min-width:0;border-radius:12px;padding:0 14px;font-size:.95rem}
 .jackpot{margin-top:8px;background:var(--gold-soft);border:1px dashed var(--gold);border-radius:8px;padding:6px 10px;font-size:.85rem;font-weight:700;color:#7a5b00}
 .countdown{margin-top:10px;font-size:.85rem;color:var(--muted)}
 .countdown b{color:var(--green-dark)}

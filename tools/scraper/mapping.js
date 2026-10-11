@@ -8,7 +8,9 @@ function norm(s) {
 /* Títulos <h4> de loteriadominicana.com.do → gameId */
 const TITLE_TO_GAME = {
   "loteria nacional- gana más": "nacional/gana-mas",
-  "loteria nacional- noche": "nacional/quiniela-noche",
+  "juega más pega más": "nacional/juega-mas-pega-mas",
+  "loteria nacional- juega más pega más": "nacional/juega-mas-pega-mas",
+  "loteria nacional- billetes y quinielas": "nacional/billetes-quinielas",
   "quiniela palé": "leidsa/quiniela-pale",
   "pega 3 más": "leidsa/pega-3-mas",
   "loto pool": "leidsa/loto-pool",
@@ -51,7 +53,7 @@ const LOGO_TO_GAME = {
   "nuevayolreal": "real/nueva-yol",
   "tufechareal": "real/tu-fecha",
   "lotoreal1": "real/loto-real",
-  "pegamasjuegamas": "nacional/pega-3-mas",
+  "pegamasjuegamas": "nacional/juega-mas-pega-mas",
 };
 
 /* Juegos con bolos especiales (bonus/super) en nuestro modelo */

@@ -22,6 +22,11 @@ function parseA(html) {
     while ((m = ballRe.exec(b))) {
       balls.push({ n: m[2].padStart(2, "0"), special: m[1] || "" });
     }
+    /* Billetes y Quinielas usa "square" en vez de "ball" (6 cifras). */
+    const sqRe = /<div class="square"><span>(\d{4,8})<\/span><\/div>/g;
+    while ((m = sqRe.exec(b))) {
+      balls.push({ n: m[1], special: "" });
+    }
     if (!balls.length) continue;
 
     const dateM = b.match(/result-item-date">\s*<span><i[^>]*><\/i>(?:&nbsp;|\u00a0|\s)+(\d{2})-(\d{2})-(\d{4})/s);

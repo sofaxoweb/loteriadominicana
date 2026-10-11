@@ -70,13 +70,14 @@ function footer(rel) {
 
 function ballsHTML(draw, kind) {
   const n = draw.n;
-  if (kind === "trio") {
+  const ball = x => `<span class="ball${x.length > 2 ? " long" : ""}">${x}</span>`;
+  if (kind === "trio" || kind === "billete") {
     const labels = ["1ro", "2do", "3ro"];
     return n.slice(0, 3).map((x, i) =>
-      `<span class="ball-label">${labels[i]}</span>${`<span class="ball">${x}</span>`}`).join(" ") +
-      (n.length > 3 ? " " + n.slice(3).map(x => `<span class="ball">${x}</span>`).join(" ") : "");
+      `<span class="ball-label">${labels[i]}</span>${ball(x)}`).join(" ") +
+      (n.length > 3 ? " " + n.slice(3).map(ball).join(" ") : "");
   }
-  let html = n.map(x => `<span class="ball">${x}</span>`).join(" ");
+  let html = n.map(ball).join(" ");
   if (draw.bonus) html += ` <span class="ball-label">Más</span> <span class="ball gold">${draw.bonus}</span>`;
   if (draw.super) html += ` <span class="ball-label">Súper</span> <span class="ball gold">${draw.super}</span>`;
   return html;
@@ -161,6 +162,9 @@ function gameFAQsExtra(lot, g) {
   if (g.kind === "trio") {
     faqs.push({ q: `¿Qué se puede jugar en ${g.name}: quiniela, palé o tripleta?`,
       a: `En ${g.name} puedes jugar la quiniela (un número de dos cifras), el palé (dos números combinados) y la tripleta (tres números). Ganas si tu jugada coincide con los números de la extracción de las ${g.time}.` });
+  } else if (g.kind === "billete") {
+    faqs.push({ q: `¿Cómo se gana en ${g.name}?`,
+      a: `En ${g.name} juegas con un billete impreso de 6 cifras. Si tu número coincide con el 1ro, 2do o 3er premio del sorteo dominical de las ${g.time}, ganas el premio correspondiente.` });
   } else {
     const n = lot.games.filter(x => x.draws && x.draws.length).length;
     faqs.push({ q: `¿Cuántos sorteos al día tiene ${lot.name}?`,
