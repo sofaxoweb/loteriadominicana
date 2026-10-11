@@ -8,8 +8,8 @@ const ROOT = path.join(__dirname, "..");
 const dataSrc = fs.readFileSync(path.join(ROOT, "assets", "data.js"), "utf8");
 const { SITE, LOTERIAS } = new Function(dataSrc + "\nreturn {SITE, LOTERIAS};")();
 const contentSrc = fs.readFileSync(path.join(ROOT, "assets", "content.js"), "utf8");
-const { ABOUT, GUIDES, MORE_FAQS, HOME_SECTIONS } =
-  new Function(contentSrc + "\nreturn {ABOUT, GUIDES, MORE_FAQS, HOME_SECTIONS};")();
+const { ABOUT, GUIDES, MORE_FAQS, HOME_SECTIONS, GAME_INTROS, LOTTERY_EXTRA, METHODOLOGY, RESPONSIBLE } =
+  new Function(contentSrc + "\nreturn {ABOUT, GUIDES, MORE_FAQS, HOME_SECTIONS, GAME_INTROS, LOTTERY_EXTRA, METHODOLOGY, RESPONSIBLE};")();
 
 const NAV = [
   ["", "Inicio"], ["loteria/", "Loterías"], ["verificador/", "Verificador"],
@@ -138,7 +138,7 @@ function operatorPage(lot) {
   <div class="section">
     <h2><span class="badge" style="background:${lot.color}">${lot.name.slice(0,2).toUpperCase()}</span> Resultados ${lot.name}</h2>
     <p class="sub">${lot.desc}</p>
-    <div class="card"><div class="card-body about">${ABOUT[lot.id] || ""}</div></div>
+    <div class="card"><div class="card-body about">${ABOUT[lot.id] || ""}${LOTTERY_EXTRA[lot.id] ? `<p>${LOTTERY_EXTRA[lot.id]}</p>` : ""}</div></div>
     <div class="adslot">Espacio publicitario</div>
     <div class="grid">${games}</div>
   </div>
@@ -151,6 +151,22 @@ function operatorPage(lot) {
     <div class="toolbox">${others}</div>
   </div>
 </main>` + footer(rel);
+}
+
+function gameFAQsExtra(lot, g) {
+  const faqs = [
+    { q: `¿A qué hora se publica el resultado de ${g.name} en LotoGana?`,
+      a: `El sorteo de ${g.name} es a las ${g.time}. Nuestro sistema lo publica en esta página minutos después de la extracción, una vez verificado contra dos fuentes independientes.` },
+  ];
+  if (g.kind === "trio") {
+    faqs.push({ q: `¿Qué se puede jugar en ${g.name}: quiniela, palé o tripleta?`,
+      a: `En ${g.name} puedes jugar la quiniela (un número de dos cifras), el palé (dos números combinados) y la tripleta (tres números). Ganas si tu jugada coincide con los números de la extracción de las ${g.time}.` });
+  } else {
+    const n = lot.games.filter(x => x.draws && x.draws.length).length;
+    faqs.push({ q: `¿Cuántos sorteos al día tiene ${lot.name}?`,
+      a: `${lot.name} celebra ${n} sorteo${n > 1 ? "s" : ""} al día: ${lot.games.filter(x => x.draws && x.draws.length).map(x => `${x.name} (${x.time})`).join(", ")}.` });
+  }
+  return faqs;
 }
 
 function gameFAQs(lot, g) {
@@ -168,8 +184,9 @@ function gamePage(lot, g) {
   const rel = "../../../";
   const guide = GUIDES[lot.id + "/" + g.id] || g.guide;
   const latest = g.draws[0];
-  const faqs = gameFAQs(lot, g);
-  const title = `${g.name} — resultados de hoy | LotoGana`;
+  const faqs = gameFAQs(lot, g).concat(gameFAQsExtra(lot, g));
+  const intro = GAME_INTROS[lot.id + "/" + g.id] || "";
+  const title = `${g.name} (${lot.name}) — resultados de hoy | LotoGana`;
   const meta = `Resultados de hoy de ${g.name} (${lot.name}): números ganadores del ${fmtD(latest.d)}, horario ${g.time}, historial completo y cómo jugar.`;
   const hist = g.draws.map(d =>
     `<tr><td>${fmtD(d.d)}</td><td>${d.n.join(" - ")}${d.bonus ? " · Más " + d.bonus : ""}${d.super ? " · Súper " + d.super : ""}</td></tr>`).join("");
@@ -183,6 +200,7 @@ function gamePage(lot, g) {
     <p style="font-size:.85rem;color:#5b6b60;margin-bottom:10px"><a href="${rel}">Inicio</a> · <a href="${rel}loteria/">Loterías</a> · <a href="../">${lot.name}</a> · ${g.name}</p>
     <h2><span class="badge" style="background:${lot.color}">${lot.name.slice(0,2).toUpperCase()}</span> ${g.name} — resultados de hoy</h2>
     <p class="sub">${lot.name} · sorteo de las ${g.time}</p>
+    ${intro ? `<div class="card"><div class="card-body about"><p>${intro}</p></div></div>` : ""}
     <div class="adslot">Espacio publicitario</div>
     <div class="card">
       <div class="card-head"><span class="badge" style="background:${lot.color}">${lot.name.slice(0,2).toUpperCase()}</span>
@@ -338,6 +356,12 @@ function buildHome() {
     </div>
   </div>
   ${HOME_SECTIONS}
+  <div class="section">
+    ${METHODOLOGY}
+  </div>
+  <div class="section">
+    ${RESPONSIBLE}
+  </div>
   <div class="section">
     <h2>Preguntas frecuentes</h2>
     <div class="faq">${faqs.map(f => `<details><summary>${f.q}</summary><p>${f.a}</p></details>`).join("")}</div>

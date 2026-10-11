@@ -195,3 +195,84 @@ suenos: `<p class="sub">En República Dominicana, soñar no es solo soñar: cada
 numeros: `<p class="sub">¿Qué números están saliendo más? Mira las estadísticas antes de armar tu jugada.</p>`,
 predicciones: `<p class="sub">Pirámide y cruz generadas con los últimos sorteos. Recuerda: es entretenimiento, el azar no tiene memoria.</p>`
 };
+
+/* ===== GAME_INTROS: párrafos definitorios por juego (entidades, AI Overviews) ===== */
+const GAME_INTROS = {
+"nacional/gana-mas": `Gana Más es el sorteo vespertino de la <strong>Lotería Nacional</strong> de la República Dominicana. Se celebra en horario de las 2:30 PM y es uno de los juegos más consultados del país, junto a Pega 3 Más y la Quiniela Noche. En LotoGana publicamos el resultado de Gana Más minutos después de cada extracción, con el historial completo de sorteos anteriores.`,
+"nacional/quiniela-noche": `La Quiniela Noche es el sorteo nocturno de la <strong>Lotería Nacional</strong> dominicana, celebrado a las 9:00 PM. Es la última oportunidad del día para los jugadores de quiniela y uno de los resultados más buscados cada noche. Aquí encontrarás los números ganadores de la Quiniela Noche apenas termina el sorteo, además de su historial.`,
+"nacional/pega-3-mas": `Pega 3 Más es el juego de tres cifras de la <strong>Lotería Nacional</strong>, con sorteo a las 2:30 PM. El jugador elige tres números y gana si coinciden con la extracción en el orden jugado. Es uno de los juegos de la Nacional con más seguidores por sus premios directos. Consulta aquí el resultado de hoy y los anteriores.`,
+"leidsa/quiniela-pale": `Quiniela Palé es el juego insignia de <strong>Leidsa</strong> (Lotería Electrónica Internacional Dominicana), sorteado a las 8:55 PM. Permite jugar la quiniela (un número de dos cifras), el palé (dos números) y la tripleta (tres números) en un solo sorteo. Es el resultado nocturno más consultado de la República Dominicana.`,
+"leidsa/pega-3-mas": `Pega 3 Más de <strong>Leidsa</strong> es el sorteo de tres dígitos de la lotería electrónica dominicana, celebrado a las 8:55 PM. El reto es acertar los tres números en el orden exacto de la extracción. En esta página verás el resultado de hoy y el historial de sorteos.`,
+"leidsa/loto-pool": `Loto Pool es el juego de pozos acumulados de <strong>Leidsa</strong>, con sorteo a las 8:55 PM. Cada sorteo puede dejar un jackpot millonario que sigue creciendo si no hay ganadores. Aquí publicamos los números ganadores del Loto Pool y el monto del premio acumulado.`,
+"leidsa/super-kino": `Super Kino TV es el sorteo televisado de <strong>Leidsa</strong>, celebrado a las 8:55 PM. Se juega eligiendo números de un tablero amplio y los premios dependen de cuántos aciertos logres. Consulta en LotoGana el resultado del Super Kino TV de hoy.`,
+"leidsa/loto": `El Loto (Loto Más) de <strong>Leidsa</strong> es el juego de loto tradicional de la República Dominicana, con sorteo a las 8:55 PM. Incluye la opción Loto Más con un número adicional que multiplica las categorías de premio. Mira aquí los números ganadores de hoy.`,
+"real/quiniela-real": `Quiniela Real es el sorteo del mediodía de <strong>Lotería Real</strong>, celebrado a las 12:55 PM. Es el primer resultado fuerte de la tarde dominicana y miles de jugadores consultan sus tres números cada día. En LotoGana lo publicamos minutos después de la extracción.`,
+"real/loto-real": `Loto Real es el juego de loto de <strong>Lotería Real</strong>, con sorteo a las 12:55 PM. Ofrece premios por acertar la combinación completa de la extracción del mediodía. Consulta aquí los números ganadores del Loto Real de hoy y su historial.`,
+"real/loto-pool-real": `Loto Pool Real es el pozo acumulado de <strong>Lotería Real</strong>, sorteado a las 12:55 PM. Su jackpot crece con cada sorteo sin ganador y es uno de los premios del mediodía más seguidos. Aquí verás el resultado y el monto acumulado.`,
+"real/nueva-yol": `Nueva Yol Real es uno de los juegos del mediodía de <strong>Lotería Real</strong> (12:55 PM). Con su formato propio de extracción, se ha ganado un público fiel entre los jugadores de la tanda vespertina. Publicamos su resultado apenas termina el sorteo.`,
+"real/tu-fecha": `Tu Fecha Real es el juego de fechas de <strong>Lotería Real</strong>, sorteado a las 12:55 PM. El jugador arma su jugada con fechas significativas (días, meses y años) y gana según las coincidencias. Mira el resultado de hoy en esta página.`,
+"loteka/quiniela-loteka": `Quiniela Loteka es el sorteo de la tarde-noche de <strong>Loteka</strong>, celebrado a las 7:55 PM. Es la quiniela de referencia para los jugadores del horario nocturno temprano. En LotoGana encontrarás sus números ganadores al instante.`,
+"loteka/mega-chance": `Mega Chance es el juego de grandes premios de <strong>Loteka</strong>, con sorteo a las 7:55 PM. Su formato de múltiples oportunidades de premio lo hace uno de los más atractivos de la tanda de la noche. Consulta el resultado de hoy aquí.`,
+"loteka/lotto-loteka": `Lotto Loteka es el loto de <strong>Loteka</strong>, sorteado a las 7:55 PM. El jugador elige su combinación y compite por el premio mayor de la extracción nocturna. Publicamos los números ganadores minutos después del sorteo.`,
+"la-primera/quiniela": `Quiniela La Primera es el sorteo del mediodía de <strong>La Primera</strong>, a las 12:00 PM. Abre la tanda de resultados de la tarde en la República Dominicana. Aquí verás sus tres números ganadores cada día.`,
+"la-primera/quiniela-noche": `Quiniela La Primera Noche es el sorteo nocturno de <strong>La Primera</strong>, celebrado a las 8:00 PM. Cierra el día para los seguidores de esta lotería. Consulta el resultado de esta noche en LotoGana.`,
+"la-primera/lotto-5": `Lotto 5 es el juego de cinco números de <strong>La Primera</strong>, con sorteo a las 8:00 PM. El reto es acertar la combinación completa de la extracción nocturna. Mira los números ganadores de hoy en esta página.`,
+"la-suerte/quiniela": `Quiniela La Suerte es el sorteo del mediodía de <strong>La Suerte</strong>, a las 12:30 PM. Es una de las quinielas vespertinas más consultadas del país. Publicamos su resultado minutos después de cada extracción.`,
+"la-suerte/quiniela-6pm": `Quiniela La Suerte 6PM es el segundo sorteo del día de <strong>La Suerte</strong>, celebrado a las 6:00 PM. Da a los jugadores una nueva oportunidad en la tarde. Consulta aquí sus números ganadores.`,
+"lotedom/quiniela": `Quiniela Lotedom es el sorteo de <strong>Lotedom</strong> de las 1:55 PM. Forma parte de la tanda del mediodía dominicano junto a Real y La Primera. En LotoGana verás su resultado al momento.`,
+"lotedom/quemaito": `El Quemaito Mayor es el juego estrella de <strong>Lotedom</strong>, sorteado a las 1:55 PM. Su nombre lo ha convertido en uno de los juegos con más identidad del mediodía. Publicamos su resultado apenas termina la extracción.`,
+"new-york/tarde": `New York Tarde es el sorteo vespertino de la <strong>lotería de Nueva York</strong> (NY Lottery), celebrado a las 2:30 PM hora local. Es muy seguido por la diáspora dominicana en Estados Unidos. Aquí encontrarás el resultado de hoy.`,
+"new-york/noche": `New York Noche es el sorteo nocturno de la <strong>lotería de Nueva York</strong>, a las 10:30 PM hora local. Cierra la jornada de sorteos estadounidenses que siguen los dominicanos. Consulta sus números ganadores en esta página.`,
+"florida/tarde": `Florida Tarde es el sorteo vespertino de la <strong>lotería de Florida</strong> (Florida Lottery), a las 1:30 PM hora local. Junto a New York, es de los sorteos de EE. UU. más consultados en República Dominicana. Mira el resultado de hoy aquí.`,
+"florida/noche": `Florida Noche es el sorteo nocturno de la <strong>lotería de Florida</strong>, celebrado a las 9:45 PM hora local. Es uno de los últimos resultados del día para los seguidores de loterías estadounidenses.`,
+"anguila/10am": `Anguila 10AM es el primer sorteo del día de la <strong>lotería de Anguila</strong>, a las 10:00 AM. Abre la jornada de resultados caribeños que consultan miles de dominicanos cada mañana.`,
+"anguila/1pm": `Anguila 1PM es el sorteo del mediodía de la <strong>lotería de Anguila</strong>, a la 1:00 PM. Forma parte de la tanda de cuatro sorteos diarios de esta lotería caribeña.`,
+"anguila/6pm": `Anguila 6PM es el sorteo vespertino de la <strong>lotería de Anguila</strong>, a las 6:00 PM. Es el tercero de los cuatro sorteos diarios de Anguila.`,
+"anguila/9pm": `Anguila 9PM es el sorteo nocturno de la <strong>lotería de Anguila</strong>, a las 9:00 PM. Cierra los cuatro sorteos diarios de esta lotería caribeña.`,
+"king-lottery/dia": `SXM Quiniela Día es el sorteo del mediodía de <strong>King Lottery (Sint Maarten)</strong>, a las 12:30 PM. Es la quiniela caribeña de la tarde seguida por jugadores dominicanos.`,
+"king-lottery/noche": `SXM Quiniela Noche es el sorteo nocturno de <strong>King Lottery (Sint Maarten)</strong>, a las 7:30 PM. Completa la doble tanda diaria de la lotería de Sint Maarten.`,
+"texas/manana": `Texas Mañana es el sorteo matutino de la <strong>lotería de Texas</strong> (Texas Lottery), a las 11:00 AM hora local. Es el primero de los tres sorteos diarios de Texas que siguen los dominicanos.`,
+"texas/mediodia": `Texas Mediodía es el sorteo del mediodía de la <strong>lotería de Texas</strong>, a las 1:27 PM hora local. Forma parte de la triple tanda diaria tejana.`,
+"texas/noche": `Texas Noche es el sorteo nocturno de la <strong>lotería de Texas</strong>, a las 7:00 PM hora local. Cierra los tres sorteos del día de Texas.`,
+"georgia/dia": `Georgia Mediodía es el sorteo del mediodía de la <strong>lotería de Georgia</strong> (Georgia Lottery), a las 12:39 PM hora local. Es uno de los sorteos estadounidenses de la tarde más consultados.`,
+"georgia/noche": `Georgia Noche es el sorteo nocturno de la <strong>lotería de Georgia</strong>, a las 6:59 PM hora local. Completa la doble tanda diaria de Georgia.`,
+"tennessee/manana": `Tennessee Mañana es el sorteo matutino de la <strong>lotería de Tennessee</strong> (Tennessee Lottery), a las 10:20 AM hora local. Abre la triple tanda diaria de Tennessee.`,
+"tennessee/tarde": `Tennessee Tarde es el sorteo vespertino de la <strong>lotería de Tennessee</strong>, a las 1:20 PM hora local. Es el segundo sorteo del día de esta lotería estadounidense.`,
+"tennessee/noche": `Tennessee Noche es el sorteo nocturno de la <strong>lotería de Tennessee</strong>, a las 7:20 PM hora local. Cierra la jornada de Tennessee.`,
+"bolet/s1": `Bolet 9:30 AM es el primer sorteo del día del <strong>Bolet de Haití</strong>, a las 9:30 AM. El bolet haitiano es muy jugado en la zona fronteriza y por la comunidad haitiana en República Dominicana.`,
+"bolet/s2": `Bolet 10:30 AM es el segundo sorteo del <strong>Bolet de Haití</strong>, a las 10:30 AM. Forma parte de los seis sorteos diarios del bolet haitiano.`,
+"bolet/s3": `Bolet 11:30 AM es el sorteo de las 11:30 AM del <strong>Bolet de Haití</strong>, el tercero de la tanda matutina.`,
+"bolet/s4": `Bolet 5:30 PM es el primer sorteo vespertino del <strong>Bolet de Haití</strong>, a las 5:30 PM. Abre la tanda de la tarde del bolet haitiano.`,
+"bolet/s5": `Bolet 6:30 PM es el sorteo de las 6:30 PM del <strong>Bolet de Haití</strong>, el segundo de la tanda vespertina.`,
+"bolet/s6": `Bolet 7:30 PM es el último sorteo del día del <strong>Bolet de Haití</strong>, a las 7:30 PM. Cierra los seis sorteos diarios del bolet haitiano.`,
+};
+
+/* ===== LOTTERY_EXTRA: segundo párrafo de entidad por lotería ===== */
+const LOTTERY_EXTRA = {
+"nacional": `La tanda de la Lotería Nacional se concentra en la tarde: Gana Más y Pega 3 Más a las 2:30 PM y la Quiniela Noche a las 9:00 PM. Es la lotería oficial del Estado dominicano y sus sorteos son de los más seguidos en bancas de todo el país.`,
+"leidsa": `Leidsa concentra todos sus sorteos en el horario estelar de las 8:55 PM: Quiniela Palé, Pega 3 Más, Loto Pool, Super Kino TV y el Loto con Loto Más. Su quiniela-palé es el resultado nocturno de referencia en la República Dominicana.`,
+"real": `Lotería Real es la lotería del mediodía por excelencia: sus cinco juegos (Quiniela Real, Loto Real, Loto Pool Real, Nueva Yol Real y Tu Fecha Real) se sortean a las 12:55 PM. Es la primera gran tanda de resultados de la tarde dominicana.`,
+"loteka": `Loteka ocupa la franja de las 7:55 PM con tres juegos: Quiniela Loteka, Mega Chance y Lotto Loteka. Es la antesala de los sorteos de las 8 y 9 de la noche y una de las tandas con más crecimiento de jugadores.`,
+"la-primera": `La Primera abre el mediodía a las 12:00 PM con su quiniela y cierra la noche a las 8:00 PM con la Quiniela Noche y el Lotto 5. Su doble tanda la hace una de las loterías con más presencia en el día.`,
+"la-suerte": `La Suerte ofrece dos oportunidades al día: su quiniela del mediodía a las 12:30 PM y la edición de las 6:00 PM. Es una de las loterías vespertinas con más tradición en bancas dominicanas.`,
+"lotedom": `Lotedom sortea a las 1:55 PM con dos juegos de fuerte identidad: la Quiniela Lotedom y El Quemaito Mayor. Su horario lo coloca justo después de la tanda del mediodía.`,
+"new-york": `Los sorteos de New York (2:30 PM y 10:30 PM, hora local) son los más seguidos por la diáspora dominicana en Estados Unidos. Sus resultados se consultan masivamente cada día desde la República Dominicana.`,
+"florida": `Florida sortea a la 1:30 PM y a las 9:45 PM (hora local). Junto a New York, forma el dúo de loterías estadounidenses con más jugadores dominicanos, tanto en EE. UU. como en la isla.`,
+"anguila": `Anguila es la lotería caribeña de las cuatro tandas: 10:00 AM, 1:00 PM, 6:00 PM y 9:00 PM. Su frecuencia la convierte en una de las más consultadas durante todo el día.`,
+"king-lottery": `King Lottery de Sint Maarten (SXM) sortea dos veces al día: 12:30 PM y 7:30 PM. Es la quiniela caribeña de referencia para la tarde y la noche.`,
+"texas": `Texas ofrece triple tanda diaria: 11:00 AM, 1:27 PM y 7:00 PM (hora local). Sus tres sorteos la hacen una de las loterías estadounidenses con más resultados al día.`,
+"georgia": `Georgia sortea al mediodía (12:39 PM) y en la noche (6:59 PM), hora local. Su tanda vespertina es muy seguida por jugadores dominicanos.`,
+"tennessee": `Tennessee tiene tres sorteos diarios: 10:20 AM, 1:20 PM y 7:20 PM (hora local). Es de las pocas loterías estadounidenses con tanda matutina, vespertina y nocturna.`,
+"bolet": `El Bolet de Haití es la lotería con más sorteos al día de nuestra cobertura: seis tandas (9:30 AM, 10:30 AM, 11:30 AM, 5:30 PM, 6:30 PM y 7:30 PM). Es muy jugado en la frontera y por la comunidad haitiana en el país.`,
+};
+
+/* ===== METHODOLOGY: cómo verificamos (confianza, AdSense, E-E-A-T) ===== */
+const METHODOLOGY = `<h2>Cómo verificamos los resultados</h2>
+<div class="card"><div class="card-body about">
+<p>En <strong>LotoGana</strong> no publicamos un resultado hasta estar seguros de que es correcto. Nuestro sistema automático consulta <strong>dos fuentes independientes</strong> de resultados cada 30 minutos, durante todo el horario de sorteos.</p>
+<p>El proceso es el siguiente: se extraen los números de ambas fuentes, se <strong>comparan cifra por cifra y se verifica que la fecha del sorteo coincida</strong>. Solo cuando los dos coinciden, el resultado se publica en esta página. Si hay cualquier diferencia —o si una fuente falla— el resultado <strong>no se publica</strong> y se genera una alerta para revisión manual.</p>
+<p>Esto significa que un número erróneo nunca llega a tu pantalla por un error de una sola fuente. La verificación cruzada es nuestra garantía de precisión.</p>
+</div></div>`;
+
+/* ===== RESPONSIBLE: juego responsable (política de Google) ===== */
+const RESPONSIBLE = `<div class="guide"><strong>Juego responsable:</strong> la lotería es una forma de entretenimiento, no una manera de ganar dinero. Juega solo lo que puedas permitirte perder, nunca persigas las pérdidas y recuerda que todos los sorteos son completamente al azar: ningún método, pirámide o estadística puede predecir los números ganadores. Si sientes que el juego deja de ser diversión, busca ayuda profesional.</div>`;
