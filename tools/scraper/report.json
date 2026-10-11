@@ -1,0 +1,152 @@
+{
+  "at": "2026-10-11T08:35:56.770Z",
+  "verified": [
+    {
+      "gameId": "leidsa/loto-pool",
+      "d": "2026-10-11",
+      "n": [
+        "03",
+        "05",
+        "13",
+        "18",
+        "30"
+      ],
+      "bonus": null,
+      "super": null,
+      "sources": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "gameId": "leidsa/loto",
+      "d": "2026-10-11",
+      "n": [
+        "12",
+        "20",
+        "22",
+        "26",
+        "30",
+        "40"
+      ],
+      "bonus": "01",
+      "super": "07",
+      "sources": [
+        "A",
+        "B"
+      ]
+    }
+  ],
+  "single": [
+    {
+      "gameId": "nacional/gana-mas",
+      "d": "2026-10-11",
+      "n": [
+        "10",
+        "35",
+        "35"
+      ],
+      "bonus": null,
+      "super": null,
+      "sources": [
+        "A"
+      ]
+    },
+    {
+      "gameId": "nacional/pega-3-mas",
+      "d": "2026-10-11",
+      "n": [
+        "04",
+        "05",
+        "08",
+        "18",
+        "21"
+      ],
+      "bonus": null,
+      "super": null,
+      "sources": [
+        "B"
+      ]
+    },
+    {
+      "gameId": "real/tu-fecha",
+      "d": "2026-10-11",
+      "n": [
+        "25"
+      ],
+      "bonus": null,
+      "super": null,
+      "sources": [
+        "B"
+      ]
+    }
+  ],
+  "conflicts": [],
+  "unmapped": [],
+  "errors": [],
+  "applied": [],
+  "skipped": [],
+  "dry": true,
+  "wouldApply": [
+    {
+      "gameId": "leidsa/loto-pool",
+      "d": "2026-10-11",
+      "n": [
+        "03",
+        "05",
+        "13",
+        "18",
+        "30"
+      ],
+      "bonus": null,
+      "super": null
+    },
+    {
+      "gameId": "leidsa/loto",
+      "d": "2026-10-11",
+      "n": [
+        "12",
+        "20",
+        "22",
+        "26",
+        "30",
+        "40"
+      ],
+      "bonus": "01",
+      "super": "07"
+    },
+    {
+      "gameId": "nacional/gana-mas",
+      "d": "2026-10-11",
+      "n": [
+        "10",
+        "35",
+        "35"
+      ],
+      "bonus": null,
+      "super": null
+    },
+    {
+      "gameId": "nacional/pega-3-mas",
+      "d": "2026-10-11",
+      "n": [
+        "04",
+        "05",
+        "08",
+        "18",
+        "21"
+      ],
+      "bonus": null,
+      "super": null
+    },
+    {
+      "gameId": "real/tu-fecha",
+      "d": "2026-10-11",
+      "n": [
+        "25"
+      ],
+      "bonus": null,
+      "super": null
+    }
+  ]
+}
