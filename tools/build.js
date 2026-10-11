@@ -108,7 +108,7 @@ function operatorPage(lot) {
   const faqs = lotteryFAQs(lot).concat(MORE_FAQS[lot.id] || []);
 
   let games = "";
-  lot.games.forEach(g => {
+  lot.games.filter(g => g.draws && g.draws.length).forEach(g => {
     const latest = g.draws[0];
     const hist = g.draws.map(d =>
       `<tr><td>${fmtD(d.d)}</td><td>${d.n.join(" - ")}${d.bonus ? " · Más " + d.bonus : ""}${d.super ? " · Súper " + d.super : ""}</td></tr>`).join("");
@@ -153,7 +153,9 @@ function operatorPage(lot) {
 function hubPage() {
   const rel = "../";
   const cards = LOTERIAS.map(lot => {
-    const latest = lot.games.map(g => g.draws[0]);
+    const withDraws = lot.games.filter(g => g.draws && g.draws.length);
+    if (!withDraws.length) return "";
+    const latest = withDraws.map(g => g.draws[0]);
     const newest = latest.sort((a, b) => b.d.localeCompare(a.d))[0];
     return `<div class="card">
       <div class="card-head"><span class="badge" style="background:${lot.color}">${lot.name.slice(0,2).toUpperCase()}</span>
@@ -176,6 +178,7 @@ function hubPage() {
 
 /* ---------- generar ---------- */
 function gameCardHTML(lot, g) {
+  if (!g.draws || !g.draws.length) return "";
   const latest = g.draws[0];
   return `<div class="game">
     <div class="game-top"><strong>${g.name}</strong><span class="meta">${g.time} · <span data-fmt-date="${latest.d}">${latest.d}</span></span></div>

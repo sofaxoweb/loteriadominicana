@@ -72,7 +72,10 @@ const LOTERIAS = [
         draws: [ { d: "2026-10-10", n: ["08","54","28"] } ] },
       { id: "tu-fecha", name: "Tu Fecha Real", time: "12:55", kind: "single",
         guide: "Un solo número del 00 al 99: tu fecha de la suerte del día.",
-        draws: [ { d: "2026-10-10", n: ["25"] } ] }
+        draws: [ { d: "2026-10-10", n: ["25"] } ] },
+      { id: "pega-4-real", name: "Pega 4 Real", time: "12:55", kind: "balls",
+        guide: "Cuatro números del 00 al 99 con premios por 4, 3 y 2 aciertos en el sorteo del mediodía.",
+        draws: [ ] }
     ]
   },
   {
