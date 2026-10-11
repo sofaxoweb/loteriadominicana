@@ -139,9 +139,9 @@ function operatorPage(lot) {
   <div class="section">
     <h2><span class="badge" style="background:${lot.color}">${lot.name.slice(0,2).toUpperCase()}</span> Resultados ${lot.name}</h2>
     <p class="sub">${lot.desc}</p>
-    <div class="card"><div class="card-body about">${ABOUT[lot.id] || ""}${LOTTERY_EXTRA[lot.id] ? `<p>${LOTTERY_EXTRA[lot.id]}</p>` : ""}</div></div>
-    <div class="adslot">Espacio publicitario</div>
     <div class="grid">${games}</div>
+    <div class="adslot">Espacio publicitario</div>
+    <div class="card"><div class="card-body about">${ABOUT[lot.id] || ""}${LOTTERY_EXTRA[lot.id] ? `<p>${LOTTERY_EXTRA[lot.id]}</p>` : ""}</div></div>
   </div>
   <div class="section">
     <h2>Preguntas frecuentes — ${lot.name}</h2>
@@ -204,8 +204,6 @@ function gamePage(lot, g) {
     <p style="font-size:.85rem;color:#5b6b60;margin-bottom:10px"><a href="${rel}">Inicio</a> · <a href="${rel}loteria/">Loterías</a> · <a href="../">${lot.name}</a> · ${g.name}</p>
     <h2><span class="badge" style="background:${lot.color}">${lot.name.slice(0,2).toUpperCase()}</span> ${g.name} — resultados de hoy</h2>
     <p class="sub">${lot.name} · sorteo de las ${g.time}</p>
-    ${intro ? `<div class="card"><div class="card-body about"><p>${intro}</p></div></div>` : ""}
-    <div class="adslot">Espacio publicitario</div>
     <div class="card">
       <div class="card-head"><span class="badge" style="background:${lot.color}">${lot.name.slice(0,2).toUpperCase()}</span>
       <h3>Último sorteo</h3><span class="time">${g.time}</span></div>
@@ -216,6 +214,8 @@ function gamePage(lot, g) {
         <div class="countdown" data-countdown="${g.time}"${g.days ? ` data-days="${g.days.join(",")}"` : ""}></div>
       </div>
     </div>
+    <div class="adslot">Espacio publicitario</div>
+    ${intro ? `<div class="card"><div class="card-body about"><p>${intro}</p></div></div>` : ""}
     <div class="card" style="margin-top:16px"><div class="card-body">
       <h3 style="margin-bottom:8px">¿Cómo se juega ${g.name}?</h3>
       <div class="about"><p>${guide}</p></div>
