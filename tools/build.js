@@ -7,6 +7,9 @@ const ROOT = path.join(__dirname, "..");
 
 const dataSrc = fs.readFileSync(path.join(ROOT, "assets", "data.js"), "utf8");
 const { SITE, LOTERIAS } = new Function(dataSrc + "\nreturn {SITE, LOTERIAS};")();
+const contentSrc = fs.readFileSync(path.join(ROOT, "assets", "content.js"), "utf8");
+const { ABOUT, GUIDES, MORE_FAQS, HOME_SECTIONS } =
+  new Function(contentSrc + "\nreturn {ABOUT, GUIDES, MORE_FAQS, HOME_SECTIONS};")();
 
 const NAV = [
   ["", "Inicio"], ["loteria/", "Loterías"], ["verificador/", "Verificador"],
@@ -102,7 +105,7 @@ function operatorPage(lot) {
   const gameNames = lot.games.map(g => g.name).join(", ");
   const title = `Resultados ${lot.name} — ${gameNames} | LotoGana`;
   const meta = `Resultados de hoy de ${lot.name}: ${gameNames}. Números ganadores, horarios, historial y cuenta regresiva del próximo sorteo.`;
-  const faqs = lotteryFAQs(lot);
+  const faqs = lotteryFAQs(lot).concat(MORE_FAQS[lot.id] || []);
 
   let games = "";
   lot.games.forEach(g => {
@@ -117,7 +120,7 @@ function operatorPage(lot) {
         <div class="meta" style="font-size:.8rem;color:#5b6b60;margin-top:8px">Sorteo del <span data-fmt-date="${latest.d}">${latest.d}</span></div>
         ${g.jackpot ? `<div class="jackpot">Premio acumulado: ${g.jackpot}</div>` : ""}
         <div class="countdown" data-countdown="${g.time}"${g.days ? ` data-days="${g.days.join(",")}"` : ""}></div>
-        <div class="guide"><strong>¿Cómo se juega?</strong> ${g.guide}</div>
+        <div class="guide"><strong>¿Cómo se juega?</strong> ${GUIDES[lot.id + "/" + g.id] || g.guide}</div>
         ${g.draws.length > 1 ? `<table class="hist"><tr><th>Fecha</th><th>Números</th></tr>${hist}</table>` : ""}
       </div></div>`;
   });
@@ -132,6 +135,7 @@ function operatorPage(lot) {
   <div class="section">
     <h2><span class="badge" style="background:${lot.color}">${lot.name.slice(0,2).toUpperCase()}</span> Resultados ${lot.name}</h2>
     <p class="sub">${lot.desc}</p>
+    <div class="card"><div class="card-body about">${ABOUT[lot.id] || ""}</div></div>
     <div class="adslot">Espacio publicitario</div>
     <div class="grid">${games}</div>
   </div>
@@ -266,6 +270,7 @@ function buildHome() {
       <a class="tool" href="predicciones/"><div class="icon">🔮</div><h3>Predicciones</h3><p>Pirámide y cruz del día generadas con los últimos sorteos.</p></a>
     </div>
   </div>
+  ${HOME_SECTIONS}
   <div class="section">
     <h2>Preguntas frecuentes</h2>
     <div class="faq">${faqs.map(f => `<details><summary>${f.q}</summary><p>${f.a}</p></details>`).join("")}</div>
