@@ -24,13 +24,13 @@ const LOTERIAS = [
     games: [
       { id: "gana-mas", name: "Gana Más", time: "14:30", kind: "trio",
         guide: "Se extraen 3 números del 00 al 99. Ganas con quiniela (los 3 en orden), palé (2) o tripleta según tu jugada.",
-        draws: [ { d: "2026-10-10", n: ["10","35","35"] } ] },
+        draws: [ { d: "2026-10-11", n: ["77","15","98"] }, { d: "2026-10-10", n: ["10","35","35"] } ] },
       { id: "quiniela-noche", name: "Quiniela Noche", time: "21:00", kind: "trio",
         guide: "El sorteo nocturno de la Nacional: 3 números del 00 al 99, todos los días a las 9:00 PM.",
-        draws: [ { d: "2026-10-10", n: ["30","47","97"] } ] },
+        draws: [ { d: "2026-10-11", n: ["78","72","43"] }, { d: "2026-10-10", n: ["30","47","97"] } ] },
       { id: "juega-mas-pega-mas", name: "Juega Más Pega Más", time: "14:30", kind: "balls",
         guide: "Cinco números de tres tómbolas (azul, roja y blanca). El premio mayor es por acertar los 5; también premian 4, 3 y 2 aciertos.",
-        draws: [ { d: "2026-10-10", n: ["05","08","04","18","21"] } ] },
+        draws: [ { d: "2026-10-11", n: ["01","26","13","11","08"] }, { d: "2026-10-10", n: ["05","08","04","18","21"] } ] },
       { id: "billetes-quinielas", name: "Billetes y Quinielas", time: "18:00", days: [0], kind: "billete",
         guide: "Sorteo especial de los domingos: 3 premios principales de 6 cifras (1ro, 2do y 3ro). Juegas con tu billete impreso.",
         draws: [ { d: "2026-09-27", n: ["326883","378130","382173"] } ] }
@@ -42,16 +42,16 @@ const LOTERIAS = [
     games: [
       { id: "quiniela-pale", name: "Quiniela Palé", time: "20:55", altTimes: { 0: "15:55" }, kind: "trio",
         guide: "Tres números del 00 al 99: lunes a sábado a las 8:55 PM, domingos a las 3:55 PM. El palé paga al acertar 2 de los 3 números.",
-        draws: [ { d: "2026-10-10", n: ["47","55","19"] } ] },
+        draws: [ { d: "2026-10-11", n: ["38","10","35"] }, { d: "2026-10-10", n: ["47","55","19"] } ] },
       { id: "pega-3-mas", name: "Pega 3 Más", time: "20:55", altTimes: { 0: "15:55" }, kind: "trio",
         guide: "Tres bolos del 00 al 99 en el sorteo nocturno de Leidsa.",
-        draws: [ { d: "2026-10-10", n: ["12","31","39"] } ] },
+        draws: [ { d: "2026-10-11", n: ["31","00","00"] }, { d: "2026-10-10", n: ["12","31","39"] } ] },
       { id: "loto-pool", name: "Loto Pool", time: "20:55", altTimes: { 0: "15:55" }, kind: "balls",
         guide: "Cinco números del 01 al 38. Gana quien acierte los 5; también premian 4 y 3 aciertos.",
-        draws: [ { d: "2026-10-10", n: ["03","05","13","18","30"] } ] },
+        draws: [ { d: "2026-10-11", n: ["11","13","15","18","26"] }, { d: "2026-10-10", n: ["03","05","13","18","30"] } ] },
       { id: "super-kino", name: "Super Kino TV", time: "20:55", altTimes: { 0: "15:55" }, kind: "balls",
         guide: "Veinte números del 01 al 80. Mientras más aciertos, mayor el premio; el premio mayor es por los 20.",
-        draws: [ { d: "2026-10-10", n: ["09","10","11","12","23","28","31","33","35","39","40","41","44","49","59","68","75","76","82","84"] } ] },
+        draws: [ { d: "2026-10-11", n: ["02","05","12","13","16","26","28","35","44","46","48","52","53","54","60","62","67","81","82","84"] }, { d: "2026-10-10", n: ["09","10","11","12","23","28","31","33","35","39","40","41","44","49","59","68","75","76","82","84"] } ] },
       { id: "loto", name: "Loto · Loto Más", time: "20:55", days: [3,6], kind: "loto", jackpot: "$150,000,000",
         guide: "Seis números del 01 al 38 más el número Más (1-12). El premio mínimo acumulado es de 150 millones de pesos. Miércoles y sábado.",
         draws: [ { d: "2026-10-10", n: ["12","20","22","26","30","40"], bonus: "01", super: "07" } ] }
@@ -144,7 +144,7 @@ const LOTERIAS = [
     games: [
       { id: "tarde", name: "New York Tarde", time: "14:30", kind: "trio",
         guide: "Tres números del 000 al 999 en el sorteo de la tarde (Midday).",
-        draws: [ { d: "2026-10-10", n: ["06","62","64"] } ] },
+        draws: [ { d: "2026-10-11", n: ["45","73","78"] }, { d: "2026-10-10", n: ["06","62","64"] } ] },
       { id: "noche", name: "New York Noche", time: "22:30", kind: "trio",
         guide: "Tres números del 000 al 999 en el sorteo nocturno (Evening).",
         draws: [ { d: "2026-10-10", n: ["23","83","44"] } ] }
@@ -174,7 +174,7 @@ const LOTERIAS = [
         draws: [ { d: "2026-10-11", n: ["97","51","88"] }, { d: "2026-10-10", n: ["14","13","33"] } ] },
       { id: "6pm", name: "Anguila 6PM", time: "18:00", kind: "trio",
         guide: "Tres números del 00 al 99 en el sorteo de las 6:00 PM.",
-        draws: [ { d: "2026-10-10", n: ["61","07","01"] } ] },
+        draws: [ { d: "2026-10-11", n: ["49","84","28"] }, { d: "2026-10-10", n: ["61","07","01"] } ] },
       { id: "9pm", name: "Anguila 9PM", time: "21:00", kind: "trio",
         guide: "Tres números del 00 al 99 en el sorteo de las 9:00 PM.",
         draws: [ { d: "2026-10-10", n: ["12","53","53"] } ] }
