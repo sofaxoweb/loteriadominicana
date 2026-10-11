@@ -34,7 +34,7 @@ function parseBPage(html, page) {
     }
     if (!balls.length) continue;
 
-    const dateM = b.match(/<p class="card-text fw-bold text-center">(\d{1,2})\/(\d{1,2})\/(\d{4})<\/p>/);
+    const dateM = b.match(/<p class="card-text fw-bold text-center">\s*(\d{1,2})\/(\d{1,2})\/(\d{4})\s*<\/p>/);
     const dateISO = dateM
       ? `${dateM[3]}-${dateM[2].padStart(2, "0")}-${dateM[1].padStart(2, "0")}`
       : null;

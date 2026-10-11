@@ -1,7 +1,9 @@
 /* LotoGana scraper — verificación cruzada entre fuentes.
    Reglas:
-   - Un juego en AMBAS fuentes: los números (ordenados) y la fecha deben
-     coincidir exactamente → VERIFIED. Si no → CONFLICT (no se publica).
+   - Un juego en AMBAS fuentes con MISMA fecha: los números (ordenados)
+     deben coincidir exactamente → VERIFIED. Si no → CONFLICT (no se publica).
+   - Un juego en AMBAS fuentes con FECHAS distintas: una está desactualizada
+     (no es conflicto) → se publica el sorteo más reciente como SINGLE.
    - Un juego en UNA sola fuente → SINGLE (se publica, marcado como tal).
    - Comparación insensible al orden de los bolos (las fuentes los ordenan
      distinto) pero sensible a duplicados (ej. 35,35).
@@ -58,12 +60,20 @@ function verify(gamesA, gamesB) {
       const ca = canon(a), cb = canon(b);
       if (sameDraw(ca, cb)) {
         verified.push({ gameId: id, d: ca.date, n: ca.nums, bonus: ca.bonus, super: cb.super, sources: ["A", "B"] });
-      } else {
+      } else if (ca.date === cb.date) {
+        // Misma fecha, números distintos = conflicto real: no se publica.
         conflicts.push({
           gameId: id,
           a: { date: ca.date, nums: ca.nums, bonus: ca.bonus, super: ca.super },
           b: { date: cb.date, nums: cb.nums, bonus: cb.bonus, super: cb.super },
         });
+      } else {
+        // Fechas distintas = una fuente está desactualizada (no es conflicto):
+        // se publica el sorteo más reciente como single.
+        const aNewer = ca.date > cb.date;
+        const c = aNewer ? ca : cb;
+        single.push({ gameId: id, d: c.date, n: c.nums, bonus: c.bonus, super: c.super,
+          sources: [aNewer ? "A" : "B"], staleOther: true });
       }
     } else {
       const g = a || b;

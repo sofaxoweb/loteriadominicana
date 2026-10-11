@@ -38,8 +38,10 @@ function tick(){
     if(!target){ el.innerHTML = ""; return; }
     let s = Math.floor((target - new Date())/1000);
     const h = Math.floor(s/3600), m = Math.floor(s%3600/60), ss = s%60;
-    const sameDay = target.toDateString() === new Date().toDateString();
-    el.innerHTML = "Próximo sorteo: <b>" + (sameDay ? "hoy" : "mañana") + " " +
+    const startOfToday = new Date(); startOfToday.setHours(0,0,0,0);
+    const dayDiff = Math.round((new Date(target.toDateString()) - startOfToday) / 86400000);
+    const when = dayDiff <= 0 ? "hoy" : dayDiff === 1 ? "mañana" : ("en " + dayDiff + " días");
+    el.innerHTML = "Próximo sorteo: <b>" + when + " " +
       el.getAttribute("data-countdown") + "</b> · faltan <b>" +
       String(h).padStart(2,"0")+":"+String(m).padStart(2,"0")+":"+String(ss).padStart(2,"0") + "</b>";
   });

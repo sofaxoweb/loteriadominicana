@@ -141,4 +141,29 @@ const ok = name => { n++; console.log("  ok:", name); };
   fs.rmSync(tmp, { recursive: true, force: true });
 }
 
+/* ---------- regresión: bugs encontrados en auditoría 2026-10-11 ---------- */
+{
+  const { parseB } = require("./parseB");
+  const { verify } = require("./verify");
+  const { titleToGame } = require("./mapping");
+
+  // 1. parseB: fecha con salto de línea/espacios (HTML real)
+  const htmlWS = `<div class="card tarjeta-loteria"><div class="card-body"><img src="https://www.sorteosrd.com/img/lotopool.png"><p class="card-text bolos text-center"><span class="bolo-noactualizado">03</span></p><p class="card-text fw-bold text-center">\n  10/10/2026</p></div></div>`;
+  const pb = parseB({ u: htmlWS });
+  assert.strictEqual(pb[0].dateISO, "2026-10-10", "fecha con whitespace se parsea");
+
+  // 2. verify: misma fecha + números distintos = conflicto; fechas distintas = single (no conflicto)
+  const A = [{ source: "A", gameId: "leidsa/loto-pool", dateISO: "2026-10-10", balls: [{ n: "03", special: "" }, { n: "05", special: "" }] }];
+  const Bold = [{ source: "B", gameId: "leidsa/loto-pool", dateISO: "2026-10-09", balls: [{ n: "01", special: "" }, { n: "02", special: "" }] }];
+  const v = verify(A, Bold);
+  assert.strictEqual(v.conflicts.length, 0, "fechas distintas no es conflicto");
+  assert.strictEqual(v.single.length, 1, "gana el más reciente como single");
+  assert.strictEqual(v.single[0].d, "2026-10-10", "el más reciente es el de A");
+
+  // 3. mapping: Quiniela Noche de la Nacional
+  assert.strictEqual(titleToGame("Loteria Nacional- Noche"), "nacional/quiniela-noche", "mapeo quiniela noche");
+
+  ok("regresión: fecha con whitespace, fechas distintas, mapeo noche");
+}
+
 console.log(`\nTODOS LOS TESTS PASARON (${n})`);

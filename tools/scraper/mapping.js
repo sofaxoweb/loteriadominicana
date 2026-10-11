@@ -8,6 +8,7 @@ function norm(s) {
 /* Títulos <h4> de loteriadominicana.com.do → gameId */
 const TITLE_TO_GAME = {
   "loteria nacional- gana más": "nacional/gana-mas",
+  "loteria nacional- noche": "nacional/quiniela-noche",
   "juega más pega más": "nacional/juega-mas-pega-mas",
   "loteria nacional- juega más pega más": "nacional/juega-mas-pega-mas",
   "loteria nacional- billetes y quinielas": "nacional/billetes-quinielas",
