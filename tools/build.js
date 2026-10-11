@@ -16,6 +16,9 @@ const NAV = [
   ["suenos/", "Sueños"], ["numeros/", "Números"], ["predicciones/", "Predicciones"]
 ];
 
+/* Dominio real del sitio — CAMBIAR al desplegar (se usa en sitemap.xml). */
+const BASE_URL = "https://lotogana.example.com";
+
 function header(rel, active, title, metaDesc, extraHead = "") {
   const links = NAV.map(([href, label]) =>
     `<a href="${rel}${href}" class="${active === href ? "active" : ""}">${label}</a>`).join("");
@@ -114,7 +117,7 @@ function operatorPage(lot) {
       `<tr><td>${fmtD(d.d)}</td><td>${d.n.join(" - ")}${d.bonus ? " · Más " + d.bonus : ""}${d.super ? " · Súper " + d.super : ""}</td></tr>`).join("");
     games += `<div class="card" id="${g.id}">
       <div class="card-head"><span class="badge" style="background:${lot.color}">${lot.name.slice(0,2).toUpperCase()}</span>
-      <h3>${g.name}</h3><span class="time">${g.time}</span></div>
+      <h3><a href="${g.id}/">${g.name}</a></h3><span class="time">${g.time}</span></div>
       <div class="card-body">
         <div class="balls">${ballsHTML(latest, g.kind)}</div>
         <div class="meta" style="font-size:.8rem;color:#5b6b60;margin-top:8px">Sorteo del <span data-fmt-date="${latest.d}">${latest.d}</span></div>
@@ -150,6 +153,67 @@ function operatorPage(lot) {
 </main>` + footer(rel);
 }
 
+function gameFAQs(lot, g) {
+  const plainGuide = (GUIDES[lot.id + "/" + g.id] || g.guide).replace(/<[^>]+>/g, "");
+  return [
+    { q: `¿A qué hora es el sorteo de ${g.name}?`,
+      a: `El sorteo de ${g.name} (${lot.name}) se celebra a las ${g.time}. En esta página tienes la cuenta regresiva en vivo y el resultado se publica minutos después de la extracción.` },
+    { q: `¿Cómo se juega ${g.name}?`, a: plainGuide },
+    { q: `¿Dónde ver los resultados de ${g.name} de hoy?`,
+      a: `Aquí mismo, en LotoGana: publicamos los números ganadores de ${g.name} apenas termina el sorteo, junto con el historial de sorteos anteriores. También puedes ver todos los juegos de ${lot.name} en su página.` },
+  ];
+}
+
+function gamePage(lot, g) {
+  const rel = "../../../";
+  const guide = GUIDES[lot.id + "/" + g.id] || g.guide;
+  const latest = g.draws[0];
+  const faqs = gameFAQs(lot, g);
+  const title = `${g.name} — resultados de hoy | LotoGana`;
+  const meta = `Resultados de hoy de ${g.name} (${lot.name}): números ganadores del ${fmtD(latest.d)}, horario ${g.time}, historial completo y cómo jugar.`;
+  const hist = g.draws.map(d =>
+    `<tr><td>${fmtD(d.d)}</td><td>${d.n.join(" - ")}${d.bonus ? " · Más " + d.bonus : ""}${d.super ? " · Súper " + d.super : ""}</td></tr>`).join("");
+  const others = lot.games
+    .filter(x => x.id !== g.id && x.draws && x.draws.length)
+    .map(x => `<a href="../${x.id}/" class="tool"><h3>${x.name}</h3><p>Ver resultados →</p></a>`).join("");
+
+  return header(rel, "loteria/", title, meta, faqJSON(faqs)) + `
+<main class="wrap">
+  <div class="section">
+    <p style="font-size:.85rem;color:#5b6b60;margin-bottom:10px"><a href="${rel}">Inicio</a> · <a href="${rel}loteria/">Loterías</a> · <a href="../">${lot.name}</a> · ${g.name}</p>
+    <h2><span class="badge" style="background:${lot.color}">${lot.name.slice(0,2).toUpperCase()}</span> ${g.name} — resultados de hoy</h2>
+    <p class="sub">${lot.name} · sorteo de las ${g.time}</p>
+    <div class="adslot">Espacio publicitario</div>
+    <div class="card">
+      <div class="card-head"><span class="badge" style="background:${lot.color}">${lot.name.slice(0,2).toUpperCase()}</span>
+      <h3>Último sorteo</h3><span class="time">${g.time}</span></div>
+      <div class="card-body">
+        <div class="balls">${ballsHTML(latest, g.kind)}</div>
+        <div class="meta" style="font-size:.85rem;color:#5b6b60;margin-top:8px">Sorteo del <span data-fmt-date="${latest.d}">${latest.d}</span></div>
+        ${g.jackpot ? `<div class="jackpot">Premio acumulado: ${g.jackpot}</div>` : ""}
+        <div class="countdown" data-countdown="${g.time}"${g.days ? ` data-days="${g.days.join(",")}"` : ""}></div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:16px"><div class="card-body">
+      <h3 style="margin-bottom:8px">¿Cómo se juega ${g.name}?</h3>
+      <div class="about"><p>${guide}</p></div>
+    </div></div>
+    ${g.draws.length > 1 ? `<div class="card" style="margin-top:16px"><div class="card-body">
+      <h3 style="margin-bottom:8px">Historial de sorteos</h3>
+      <table class="hist"><tr><th>Fecha</th><th>Números ganadores</th></tr>${hist}</table>
+    </div></div>` : ""}
+  </div>
+  <div class="section">
+    <h2>Preguntas frecuentes — ${g.name}</h2>
+    <div class="faq">${faqs.map(f => `<details><summary>${f.q}</summary><p>${f.a}</p></details>`).join("")}</div>
+  </div>
+  ${others ? `<div class="section">
+    <h2>Más juegos de ${lot.name}</h2>
+    <div class="toolbox">${others}</div>
+  </div>` : ""}
+</main>` + footer(rel);
+}
+
 function hubPage() {
   const rel = "../";
   const cards = LOTERIAS.map(lot => {
@@ -181,7 +245,7 @@ function gameCardHTML(lot, g) {
   if (!g.draws || !g.draws.length) return "";
   const latest = g.draws[0];
   return `<div class="game">
-    <div class="game-top"><strong>${g.name}</strong><span class="meta">${g.time} · <span data-fmt-date="${latest.d}">${latest.d}</span></span></div>
+    <div class="game-top"><strong><a href="loteria/${lot.id}/${g.id}/">${g.name}</a></strong><span class="meta">${g.time} · <span data-fmt-date="${latest.d}">${latest.d}</span></span></div>
     <div class="balls">${ballsHTML(latest, g.kind)}</div>
     ${g.jackpot ? `<div class="jackpot">Acumulado: ${g.jackpot}</div>` : ""}
     <div class="countdown" data-countdown="${g.time}"${g.days ? ` data-days="${g.days.join(",")}"` : ""}></div>
@@ -218,7 +282,7 @@ function buildHome() {
     return `<div class="card">
       <div class="card-head"><span class="badge" style="background:${lot.color}">${lot.name.slice(0,2).toUpperCase()}</span>
       <h3><a href="loteria/${lot.id}/">${lot.name}</a></h3></div>
-      <div class="card-body"><div class="game-top"><strong>${g0.name}</strong><span class="meta"><span data-fmt-date="${latest.d}">${latest.d}</span></span></div>
+      <div class="card-body"><div class="game-top"><strong><a href="loteria/${lot.id}/${g0.id}/">${g0.name}</a></strong><span class="meta"><span data-fmt-date="${latest.d}">${latest.d}</span></span></div>
       <div class="balls">${ballsHTML(latest, g0.kind)}</div>
       <p style="margin-top:8px;font-size:.85rem;color:#5b6b60">+ ${lot.games.length - 1} sorteos más</p></div>
       <div class="card-foot"><a href="loteria/${lot.id}/">Ver resultados →</a></div>
@@ -286,9 +350,34 @@ LOTERIAS.forEach(lot => {
   fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(path.join(dir, "index.html"), operatorPage(lot));
   console.log("ok loteria/" + lot.id + "/");
+  let nGames = 0;
+  lot.games.filter(g => g.draws && g.draws.length).forEach(g => {
+    const gdir = path.join(dir, g.id);
+    fs.mkdirSync(gdir, { recursive: true });
+    fs.writeFileSync(path.join(gdir, "index.html"), gamePage(lot, g));
+    nGames++;
+  });
+  console.log("  +", nGames, "páginas de juegos");
 });
 fs.writeFileSync(path.join(ROOT, "loteria", "index.html"), hubPage());
 console.log("ok loteria/ (hub)");
 fs.writeFileSync(path.join(ROOT, "index.html"), buildHome());
 console.log("ok index.html (portada)");
+
+// sitemap.xml (requiere BASE_URL configurado arriba)
+(function sitemap() {
+  const urls = [""];
+  LOTERIAS.forEach(lot => {
+    urls.push(`loteria/${lot.id}/`);
+    lot.games.filter(g => g.draws && g.draws.length)
+      .forEach(g => urls.push(`loteria/${lot.id}/${g.id}/`));
+  });
+  ["loteria/", "verificador/", "suenos/", "numeros/", "predicciones/",
+   "nosotros/", "contacto/", "privacidad/"].forEach(p => urls.push(p));
+  const xml = urls.map(u =>
+    `  <url><loc>${BASE_URL}/${u}</loc><changefreq>hourly</changefreq></url>`).join("\n");
+  fs.writeFileSync(path.join(ROOT, "sitemap.xml"),
+    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${xml}\n</urlset>`);
+  console.log("ok sitemap.xml (" + urls.length + " URLs)");
+})();
 console.log("Total:", LOTERIAS.length, "páginas de lotería");
