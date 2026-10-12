@@ -147,7 +147,7 @@ const LOTERIAS = [
         draws: [ { d: "2026-10-11", n: ["45","73","78"] }, { d: "2026-10-10", n: ["06","62","64"] } ] },
       { id: "noche", name: "New York Noche", time: "22:30", kind: "trio",
         guide: "Tres números del 000 al 999 en el sorteo nocturno (Evening).",
-        draws: [ { d: "2026-10-10", n: ["23","83","44"] } ] }
+        draws: [ { d: "2026-10-11", n: ["21","73","19"] }, { d: "2026-10-10", n: ["23","83","44"] } ] }
     ]
   },
   {
@@ -159,7 +159,7 @@ const LOTERIAS = [
         draws: [ { d: "2026-10-11", n: ["16","53","29"] }, { d: "2026-10-10", n: ["44","35","47"] } ] },
       { id: "noche", name: "Florida Noche", time: "21:45", kind: "trio",
         guide: "Tres números del 000 al 999 en el sorteo nocturno (Evening).",
-        draws: [ { d: "2026-10-10", n: ["52","37","53"] } ] }
+        draws: [ { d: "2026-10-11", n: ["48","77","97"] }, { d: "2026-10-10", n: ["52","37","53"] } ] }
     ]
   },
   {
