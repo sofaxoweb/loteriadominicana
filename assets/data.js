@@ -13,7 +13,7 @@
 const SITE = {
   name: "LotoGana",
   tagline: "Resultados de loterías dominicanas al instante",
-  updated: "2026-10-11",
+  updated: "2026-10-12",
   description: "Resultados al instante de los sorteos de loterías dominicanas: Lotería Nacional, Leidsa, Real, Loteka, La Primera, La Suerte, Lotedom, New York, Florida, Anguila, King Lottery y más. Horarios, cuenta regresiva, verificador de jugadas, sueños, números calientes y predicciones."
 };
 
@@ -87,10 +87,10 @@ const LOTERIAS = [
     games: [
       { id: "quiniela-loteka", name: "Quiniela Loteka", time: "19:55", kind: "trio",
         guide: "Tres números del 00 al 99 en el sorteo nocturno de Loteka.",
-        draws: [ { d: "2026-10-10", n: ["77","02","13"] } ] },
+        draws: [ { d: "2026-10-11", n: ["88","99","61"] }, { d: "2026-10-10", n: ["77","02","13"] } ] },
       { id: "mega-chance", name: "Mega Chance", time: "19:55", kind: "balls",
         guide: "Cinco números del 00 al 99. Premia 5, 4 y 3 aciertos.",
-        draws: [ { d: "2026-10-10", n: ["35","95","41","91","62"] } ] },
+        draws: [ { d: "2026-10-11", n: ["45","69","89","82","87"] }, { d: "2026-10-10", n: ["35","95","41","91","62"] } ] },
       { id: "lotto-loteka", name: "Lotto Loteka", time: "19:55", days: [1,4], kind: "power", jackpot: "$100,000,000",
         guide: "Seis números más el Extra y el Power. Premio mínimo de 100 millones de pesos. Lunes y jueves.",
         draws: [ { d: "2026-10-08", n: ["06","09","18","31","32","35"], bonus: "01", super: "09" } ] }
@@ -105,10 +105,10 @@ const LOTERIAS = [
         draws: [ { d: "2026-10-11", n: ["61","82","00"] }, { d: "2026-10-10", n: ["64","40","06"] } ] },
       { id: "quiniela-noche", name: "Quiniela La Primera Noche", time: "20:00", kind: "trio",
         guide: "Tres números del 00 al 99 en el sorteo de las 8:00 PM.",
-        draws: [ { d: "2026-10-10", n: ["89","92","84"] } ] },
+        draws: [ { d: "2026-10-11", n: ["59","76","97"] }, { d: "2026-10-10", n: ["89","92","84"] } ] },
       { id: "lotto-5", name: "Lotto 5", time: "20:00", kind: "balls",
         guide: "Seis números del 01 al 38. El premio mayor es por acertar los 6.",
-        draws: [ { d: "2026-10-10", n: ["02","14","17","20","27","01"] } ] }
+        draws: [ { d: "2026-10-11", n: ["01","07","12","16","27","04"] }, { d: "2026-10-10", n: ["02","14","17","20","27","01"] } ] }
     ]
   },
   {
@@ -120,7 +120,7 @@ const LOTERIAS = [
         draws: [ { d: "2026-10-11", n: ["74","97","07"] }, { d: "2026-10-10", n: ["12","34","72"] } ] },
       { id: "quiniela-6pm", name: "Quiniela La Suerte 6PM", time: "18:00", kind: "trio",
         guide: "Tres números del 00 al 99 en el sorteo de las 6:00 PM.",
-        draws: [ { d: "2026-10-10", n: ["57","46","15"] } ] }
+        draws: [ { d: "2026-10-11", n: ["94","16","34"] }, { d: "2026-10-10", n: ["57","46","15"] } ] }
     ]
   },
   {
@@ -177,7 +177,7 @@ const LOTERIAS = [
         draws: [ { d: "2026-10-11", n: ["49","84","28"] }, { d: "2026-10-10", n: ["61","07","01"] } ] },
       { id: "9pm", name: "Anguila 9PM", time: "21:00", kind: "trio",
         guide: "Tres números del 00 al 99 en el sorteo de las 9:00 PM.",
-        draws: [ { d: "2026-10-10", n: ["12","53","53"] } ] }
+        draws: [ { d: "2026-10-11", n: ["17","08","25"] }, { d: "2026-10-10", n: ["12","53","53"] } ] }
     ]
   },
   {
@@ -189,7 +189,7 @@ const LOTERIAS = [
         draws: [ { d: "2026-10-11", n: ["44","96","51"] }, { d: "2026-10-10", n: ["07","97","94"] } ] },
       { id: "noche", name: "SXM Quiniela Noche", time: "19:30", kind: "trio",
         guide: "Tres números del 00 al 99 en el sorteo nocturno.",
-        draws: [ { d: "2026-10-10", n: ["84","46","25"] } ] }
+        draws: [ { d: "2026-10-11", n: ["03","90","27"] }, { d: "2026-10-10", n: ["84","46","25"] } ] }
     ]
   },
   {
