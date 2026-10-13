@@ -255,7 +255,7 @@ const AMERICANAS = [
     draws: [ { d: "2026-10-09", n: ["02","07","16","63","70"], bonus: "08" } ] },
   { name: "Powerball", kind: "power", time: "22:59", days: [1,3,6], jackpot: "$519,200,000",
     guide: "Cinco números del 1 al 69 más la Powerball. Sorteos lunes, miércoles y sábado.",
-    draws: [ { d: "2026-10-10", n: ["01","04","19","33","51"], bonus: "15", extra: "2X" } ] }
+    draws: [ { d: "2026-10-12", n: ["22","28","38","51","69"], bonus: "09" }, { d: "2026-10-10", n: ["01","04","19","33","51"], bonus: "15" } ] }
 ];
 
 /* --------------------------------------------------------------------------
