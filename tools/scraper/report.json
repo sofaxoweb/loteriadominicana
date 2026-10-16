@@ -1,5 +1,5 @@
 {
-  "at": "2026-10-16T20:20:42.428Z",
+  "at": "2026-10-16T22:55:26.856Z",
   "verified": [
     {
       "gameId": "leidsa/pega-3-mas",
@@ -313,11 +313,11 @@
     },
     {
       "gameId": "la-suerte/quiniela-6pm",
-      "d": "2026-10-15",
+      "d": "2026-10-16",
       "n": [
         "93",
-        "30",
-        "51"
+        "72",
+        "35"
       ],
       "bonus": null,
       "super": null,
@@ -452,11 +452,11 @@
     },
     {
       "gameId": "anguila/6pm",
-      "d": "2026-10-15",
+      "d": "2026-10-16",
       "n": [
-        "51",
-        "08",
-        "71"
+        "36",
+        "09",
+        "00"
       ],
       "bonus": null,
       "super": null,
@@ -615,41 +615,21 @@
   "errors": [],
   "applied": [
     {
-      "gameId": "nacional/gana-mas",
+      "gameId": "la-suerte/quiniela-6pm",
       "d": "2026-10-16",
       "n": [
-        "46",
-        "08",
-        "83"
+        "93",
+        "72",
+        "35"
       ]
     },
     {
-      "gameId": "new-york/tarde",
+      "gameId": "anguila/6pm",
       "d": "2026-10-16",
       "n": [
-        "06",
-        "75",
-        "98"
-      ]
-    },
-    {
-      "gameId": "florida/tarde",
-      "d": "2026-10-16",
-      "n": [
-        "52",
-        "32",
-        "59"
-      ]
-    },
-    {
-      "gameId": "nacional/juega-mas-pega-mas",
-      "d": "2026-10-16",
-      "n": [
-        "14",
-        "07",
-        "14",
-        "18",
-        "20"
+        "36",
+        "09",
+        "00"
       ]
     }
   ],
@@ -680,6 +660,10 @@
     },
     {
       "gameId": "lotedom/quemaito",
+      "reason": "ya actualizado"
+    },
+    {
+      "gameId": "nacional/gana-mas",
       "reason": "ya actualizado"
     },
     {
@@ -723,11 +707,15 @@
       "reason": "ya actualizado"
     },
     {
-      "gameId": "la-suerte/quiniela-6pm",
+      "gameId": "new-york/tarde",
       "reason": "ya actualizado"
     },
     {
       "gameId": "new-york/noche",
+      "reason": "ya actualizado"
+    },
+    {
+      "gameId": "florida/tarde",
       "reason": "ya actualizado"
     },
     {
@@ -748,10 +736,6 @@
     },
     {
       "gameId": "anguila/1pm",
-      "reason": "ya actualizado"
-    },
-    {
-      "gameId": "anguila/6pm",
       "reason": "ya actualizado"
     },
     {
@@ -780,6 +764,10 @@
     },
     {
       "gameId": "real/tu-fecha",
+      "reason": "ya actualizado"
+    },
+    {
+      "gameId": "nacional/juega-mas-pega-mas",
       "reason": "ya actualizado"
     },
     {
