@@ -252,7 +252,7 @@ const LOTERIAS = [
 const AMERICANAS = [
   { name: "Mega Millions", kind: "power", time: "23:00", days: [2,5], jackpot: "$385,000,000",
     guide: "Cinco números del 1 al 70 más la Mega Ball. Sorteos martes y viernes.",
-    draws: [ { d: "2026-10-13", n: ["11","12","15","40","66"], bonus: "17" }, { d: "2026-10-09", n: ["02","07","16","63","70"], bonus: "08" } ] },
+    draws: [ { d: "2026-10-16", n: ["02","15","31","41","68"], bonus: "11" }, { d: "2026-10-13", n: ["11","12","15","40","66"], bonus: "17" }, { d: "2026-10-09", n: ["02","07","16","63","70"], bonus: "08" } ] },
   { name: "Powerball", kind: "power", time: "22:59", days: [1,3,6], jackpot: "$519,200,000",
     guide: "Cinco números del 1 al 69 más la Powerball. Sorteos lunes, miércoles y sábado.",
     draws: [ { d: "2026-10-14", n: ["03","34","37","42","46"], bonus: "20" }, { d: "2026-10-12", n: ["22","28","38","51","69"], bonus: "09" }, { d: "2026-10-10", n: ["01","04","19","33","51"], bonus: "15" } ] }
