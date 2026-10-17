@@ -1,15 +1,17 @@
-# Actualiza los resultados automáticamente cada 30 minutos en horario de sorteos.
-# Flujo: scrape → verificación cruzada → actualiza data.js → regenera → commit+push.
-# Si hay conflictos o errores, abre un issue de alerta (no se publica nada dudoso).
-name: Actualizar resultados
+# Atualiza os resultados do jogo do bicho automaticamente.
+# Fluxo: scrape (deunoposte.com.br × bicholoterias.com.br) → verificação
+# cruzada → preenche sorteios vazios em assets/data.js → commit+push.
+# Divergências entre fontes ou com o já publicado NÃO são publicadas:
+# abrem um issue de alerta para revisão manual.
+name: Atualizar resultados
 
 on:
   schedule:
-    # 10:00–19:30 hora dominicana (AST = UTC-4)
-    - cron: "*/30 14-23 * * *"
-    # 20:00–23:30 hora dominicana
-    - cron: "*/30 0-3 * * *"
-  workflow_dispatch: # ejecución manual desde la pestaña Actions
+    # 00:00–20:30 BRT (UTC-3 = BRT+3)
+    - cron: "*/30 3-23 * * *"
+    # 21:00–23:30 BRT
+    - cron: "*/30 0-2 * * *"
+  workflow_dispatch: # execução manual pela aba Actions
 
 jobs:
   scrape:
@@ -24,25 +26,25 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Ejecutar scraper
+      - name: Executar scraper
         id: scrape
         continue-on-error: true
         run: node tools/scraper/run.js
 
-      - name: Commit y push si hay cambios
+      - name: Commit e push se houver mudanças
         if: always()
         run: |
-          git config user.name "LotoGana Bot"
-          git config user.email "lotogana-bot@users.noreply.github.com"
-          git add assets/data.js index.html loteria/ tools/scraper/report.json
+          git config user.name "DeuNoBicho Bot"
+          git config user.email "deunobicho-bot@users.noreply.github.com"
+          git add assets/data.js assets/data-ontem.js tools/scraper/report.json
           if git diff --cached --quiet; then
-            echo "Sin cambios en resultados."
+            echo "Sem mudanças nos resultados."
           else
             git commit -m "Auto: resultados $(date -u +%Y-%m-%d\ %H:%M) UTC"
             git push
           fi
 
-      - name: Alerta si hubo conflictos o errores
+      - name: Alerta se houve conflitos ou erros
         if: steps.scrape.outcome == 'failure'
         uses: actions/github-script@v7
         with:
@@ -50,18 +52,18 @@ jobs:
             const fs = require('fs');
             const report = JSON.parse(fs.readFileSync('tools/scraper/report.json', 'utf8'));
             const body = [
-              'El scraper encontró conflictos o errores. Esos sorteos **NO** se publicaron.',
+              'O scraper encontrou conflitos ou erros. Esses sorteios **NÃO** foram publicados.',
               '',
               '```json',
               JSON.stringify({ conflicts: report.conflicts, errors: report.errors, unmapped: report.unmapped }, null, 2),
               '```',
               '',
-              'Revisa manualmente las fuentes y actualiza `assets/data.js` si hace falta.',
+              'Revise manualmente as fontes e atualize `assets/data.js` se preciso.',
             ].join('\n');
             await github.rest.issues.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              title: `Revisar sorteos ${report.at.slice(0, 10)}`,
+              title: `Revisar sorteios ${report.today}`,
               body,
               labels: ['scraper'],
             });
