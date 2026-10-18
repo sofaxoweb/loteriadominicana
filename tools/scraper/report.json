@@ -1,13 +1,13 @@
 {
-  "at": "2026-10-18T19:32:48.881Z",
+  "at": "2026-10-18T22:16:02.865Z",
   "verified": [
     {
       "gameId": "leidsa/pega-3-mas",
-      "d": "2026-10-17",
+      "d": "2026-10-18",
       "n": [
-        "30",
-        "44",
-        "33"
+        "20",
+        "18",
+        "43"
       ],
       "bonus": null,
       "super": null,
@@ -19,13 +19,13 @@
     },
     {
       "gameId": "leidsa/loto-pool",
-      "d": "2026-10-17",
+      "d": "2026-10-18",
       "n": [
         "02",
-        "13",
+        "11",
         "15",
-        "20",
-        "30"
+        "26",
+        "28"
       ],
       "bonus": null,
       "super": null,
@@ -37,28 +37,28 @@
     },
     {
       "gameId": "leidsa/super-kino",
-      "d": "2026-10-17",
+      "d": "2026-10-18",
       "n": [
-        "03",
+        "01",
+        "05",
         "06",
-        "11",
-        "14",
-        "15",
-        "18",
-        "20",
+        "12",
+        "21",
         "25",
-        "26",
-        "31",
-        "34",
+        "28",
+        "29",
+        "32",
         "35",
-        "36",
-        "40",
+        "38",
         "41",
+        "44",
         "47",
         "49",
-        "63",
+        "60",
+        "67",
+        "69",
         "72",
-        "82"
+        "80"
       ],
       "bonus": null,
       "super": null,
@@ -136,11 +136,11 @@
     },
     {
       "gameId": "nacional/quiniela-noche",
-      "d": "2026-10-17",
+      "d": "2026-10-18",
       "n": [
-        "23",
         "01",
-        "68"
+        "58",
+        "45"
       ],
       "bonus": null,
       "super": null,
@@ -151,11 +151,11 @@
     },
     {
       "gameId": "leidsa/quiniela-pale",
-      "d": "2026-10-17",
+      "d": "2026-10-18",
       "n": [
-        "61",
-        "09",
-        "25"
+        "37",
+        "71",
+        "06"
       ],
       "bonus": null,
       "super": null,
@@ -452,11 +452,11 @@
     },
     {
       "gameId": "anguila/6pm",
-      "d": "2026-10-17",
+      "d": "2026-10-18",
       "n": [
-        "68",
         "07",
-        "69"
+        "21",
+        "45"
       ],
       "bonus": null,
       "super": null,
@@ -615,57 +615,80 @@
   "errors": [],
   "applied": [
     {
-      "gameId": "nacional/gana-mas",
+      "gameId": "leidsa/pega-3-mas",
       "d": "2026-10-18",
       "n": [
-        "90",
-        "27",
-        "22"
-      ]
-    },
-    {
-      "gameId": "new-york/tarde",
-      "d": "2026-10-18",
-      "n": [
-        "40",
-        "22",
-        "36"
-      ]
-    },
-    {
-      "gameId": "florida/tarde",
-      "d": "2026-10-18",
-      "n": [
-        "17",
-        "67",
-        "79"
-      ]
-    },
-    {
-      "gameId": "nacional/juega-mas-pega-mas",
-      "d": "2026-10-18",
-      "n": [
-        "14",
-        "05",
+        "20",
         "18",
+        "43"
+      ]
+    },
+    {
+      "gameId": "leidsa/loto-pool",
+      "d": "2026-10-18",
+      "n": [
+        "02",
+        "11",
         "15",
-        "17"
+        "26",
+        "28"
+      ]
+    },
+    {
+      "gameId": "leidsa/super-kino",
+      "d": "2026-10-18",
+      "n": [
+        "01",
+        "05",
+        "06",
+        "12",
+        "21",
+        "25",
+        "28",
+        "29",
+        "32",
+        "35",
+        "38",
+        "41",
+        "44",
+        "47",
+        "49",
+        "60",
+        "67",
+        "69",
+        "72",
+        "80"
+      ]
+    },
+    {
+      "gameId": "nacional/quiniela-noche",
+      "d": "2026-10-18",
+      "n": [
+        "01",
+        "58",
+        "45"
+      ]
+    },
+    {
+      "gameId": "leidsa/quiniela-pale",
+      "d": "2026-10-18",
+      "n": [
+        "37",
+        "71",
+        "06"
+      ]
+    },
+    {
+      "gameId": "anguila/6pm",
+      "d": "2026-10-18",
+      "n": [
+        "07",
+        "21",
+        "45"
       ]
     }
   ],
   "skipped": [
-    {
-      "gameId": "leidsa/pega-3-mas",
-      "reason": "ya actualizado"
-    },
-    {
-      "gameId": "leidsa/loto-pool",
-      "reason": "ya actualizado"
-    },
-    {
-      "gameId": "leidsa/super-kino",
-      "reason": "ya actualizado"
-    },
     {
       "gameId": "leidsa/loto",
       "reason": "ya actualizado"
@@ -679,11 +702,7 @@
       "reason": "ya actualizado"
     },
     {
-      "gameId": "nacional/quiniela-noche",
-      "reason": "ya actualizado"
-    },
-    {
-      "gameId": "leidsa/quiniela-pale",
+      "gameId": "nacional/gana-mas",
       "reason": "ya actualizado"
     },
     {
@@ -727,7 +746,15 @@
       "reason": "ya actualizado"
     },
     {
+      "gameId": "new-york/tarde",
+      "reason": "ya actualizado"
+    },
+    {
       "gameId": "new-york/noche",
+      "reason": "ya actualizado"
+    },
+    {
+      "gameId": "florida/tarde",
       "reason": "ya actualizado"
     },
     {
@@ -748,10 +775,6 @@
     },
     {
       "gameId": "anguila/1pm",
-      "reason": "ya actualizado"
-    },
-    {
-      "gameId": "anguila/6pm",
       "reason": "ya actualizado"
     },
     {
@@ -780,6 +803,10 @@
     },
     {
       "gameId": "real/tu-fecha",
+      "reason": "ya actualizado"
+    },
+    {
+      "gameId": "nacional/juega-mas-pega-mas",
       "reason": "ya actualizado"
     },
     {
