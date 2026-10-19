@@ -1,5 +1,5 @@
 {
-  "at": "2026-10-19T02:06:26.708Z",
+  "at": "2026-10-19T07:56:53.281Z",
   "verified": [
     {
       "gameId": "leidsa/pega-3-mas",
@@ -343,11 +343,11 @@
     },
     {
       "gameId": "new-york/noche",
-      "d": "2026-10-17",
+      "d": "2026-10-18",
       "n": [
-        "02",
-        "30",
-        "66"
+        "59",
+        "77",
+        "32"
       ],
       "bonus": null,
       "super": null,
@@ -615,41 +615,12 @@
   "errors": [],
   "applied": [
     {
-      "gameId": "loteka/mega-chance",
+      "gameId": "new-york/noche",
       "d": "2026-10-18",
       "n": [
-        "08",
-        "08",
-        "08",
-        "08",
-        "26"
-      ]
-    },
-    {
-      "gameId": "la-suerte/quiniela-6pm",
-      "d": "2026-10-18",
-      "n": [
-        "03",
-        "81",
-        "78"
-      ]
-    },
-    {
-      "gameId": "florida/noche",
-      "d": "2026-10-18",
-      "n": [
-        "88",
-        "89",
-        "74"
-      ]
-    },
-    {
-      "gameId": "anguila/9pm",
-      "d": "2026-10-18",
-      "n": [
-        "70",
-        "56",
-        "85"
+        "59",
+        "77",
+        "32"
       ]
     }
   ],
@@ -703,6 +674,10 @@
       "reason": "ya actualizado"
     },
     {
+      "gameId": "loteka/mega-chance",
+      "reason": "ya actualizado"
+    },
+    {
       "gameId": "loteka/lotto-loteka",
       "reason": "ya actualizado"
     },
@@ -723,15 +698,19 @@
       "reason": "ya actualizado"
     },
     {
+      "gameId": "la-suerte/quiniela-6pm",
+      "reason": "ya actualizado"
+    },
+    {
       "gameId": "new-york/tarde",
       "reason": "ya actualizado"
     },
     {
-      "gameId": "new-york/noche",
+      "gameId": "florida/tarde",
       "reason": "ya actualizado"
     },
     {
-      "gameId": "florida/tarde",
+      "gameId": "florida/noche",
       "reason": "ya actualizado"
     },
     {
@@ -752,6 +731,10 @@
     },
     {
       "gameId": "anguila/6pm",
+      "reason": "ya actualizado"
+    },
+    {
+      "gameId": "anguila/9pm",
       "reason": "ya actualizado"
     },
     {
