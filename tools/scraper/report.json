@@ -1,5 +1,5 @@
 {
-  "at": "2026-10-22T07:46:44.791Z",
+  "at": "2026-10-22T18:21:29.195Z",
   "verified": [
     {
       "gameId": "leidsa/pega-3-mas",
@@ -89,11 +89,11 @@
     },
     {
       "gameId": "lotedom/quiniela",
-      "d": "2026-10-21",
+      "d": "2026-10-22",
       "n": [
-        "56",
-        "83",
-        "03"
+        "24",
+        "47",
+        "44"
       ],
       "bonus": null,
       "super": null,
@@ -105,9 +105,9 @@
     },
     {
       "gameId": "lotedom/quemaito",
-      "d": "2026-10-21",
+      "d": "2026-10-22",
       "n": [
-        "11"
+        "80"
       ],
       "bonus": null,
       "super": null,
@@ -166,11 +166,11 @@
     },
     {
       "gameId": "real/quiniela-real",
-      "d": "2026-10-21",
+      "d": "2026-10-22",
       "n": [
-        "28",
-        "61",
-        "58"
+        "03",
+        "77",
+        "87"
       ],
       "bonus": null,
       "super": null,
@@ -250,11 +250,11 @@
     },
     {
       "gameId": "la-primera/quiniela",
-      "d": "2026-10-21",
+      "d": "2026-10-22",
       "n": [
-        "69",
-        "40",
-        "49"
+        "83",
+        "59",
+        "56"
       ],
       "bonus": null,
       "super": null,
@@ -298,11 +298,11 @@
     },
     {
       "gameId": "la-suerte/quiniela",
-      "d": "2026-10-21",
+      "d": "2026-10-22",
       "n": [
-        "91",
-        "82",
-        "10"
+        "40",
+        "19",
+        "94"
       ],
       "bonus": null,
       "super": null,
@@ -358,11 +358,11 @@
     },
     {
       "gameId": "florida/tarde",
-      "d": "2026-10-21",
+      "d": "2026-10-22",
       "n": [
-        "55",
-        "69",
-        "70"
+        "27",
+        "79",
+        "28"
       ],
       "bonus": null,
       "super": null,
@@ -422,11 +422,11 @@
     },
     {
       "gameId": "anguila/10am",
-      "d": "2026-10-21",
+      "d": "2026-10-22",
       "n": [
-        "59",
-        "07",
-        "62"
+        "31",
+        "62",
+        "95"
       ],
       "bonus": null,
       "super": null,
@@ -437,11 +437,11 @@
     },
     {
       "gameId": "anguila/1pm",
-      "d": "2026-10-21",
+      "d": "2026-10-22",
       "n": [
-        "20",
-        "88",
-        "41"
+        "12",
+        "85",
+        "02"
       ],
       "bonus": null,
       "super": null,
@@ -482,11 +482,11 @@
     },
     {
       "gameId": "king-lottery/dia",
-      "d": "2026-10-21",
+      "d": "2026-10-22",
       "n": [
-        "93",
-        "57",
-        "08"
+        "62",
+        "51",
+        "69"
       ],
       "bonus": null,
       "super": null,
@@ -512,12 +512,12 @@
     },
     {
       "gameId": "real/loto-pool-real",
-      "d": "2026-10-19",
+      "d": "2026-10-22",
       "n": [
-        "28",
-        "31",
-        "66",
-        "39"
+        "50",
+        "84",
+        "61",
+        "62"
       ],
       "bonus": null,
       "super": null,
@@ -544,11 +544,11 @@
     },
     {
       "gameId": "real/nueva-yol",
-      "d": "2026-10-19",
+      "d": "2026-10-22",
       "n": [
-        "54",
-        "90",
-        "72"
+        "70",
+        "47",
+        "13"
       ],
       "bonus": null,
       "super": null,
@@ -559,9 +559,9 @@
     },
     {
       "gameId": "real/tu-fecha",
-      "d": "2026-10-19",
+      "d": "2026-10-22",
       "n": [
-        "05"
+        "29"
       ],
       "bonus": null,
       "super": null,
@@ -589,12 +589,12 @@
     },
     {
       "gameId": "lotedom/agarra-4",
-      "d": "2026-10-21",
+      "d": "2026-10-22",
       "n": [
-        "56",
-        "83",
-        "03",
-        "11"
+        "24",
+        "47",
+        "44",
+        "80"
       ],
       "bonus": null,
       "super": null,
@@ -615,23 +615,118 @@
   "errors": [],
   "applied": [
     {
-      "gameId": "new-york/noche",
-      "d": "2026-10-21",
+      "gameId": "lotedom/quiniela",
+      "d": "2026-10-22",
       "n": [
-        "97",
-        "86",
-        "06"
+        "24",
+        "47",
+        "44"
       ]
     },
     {
-      "gameId": "americanas/Powerball",
-      "d": "2026-10-21",
+      "gameId": "lotedom/quemaito",
+      "d": "2026-10-22",
       "n": [
-        "01",
-        "21",
-        "44",
+        "80"
+      ]
+    },
+    {
+      "gameId": "real/quiniela-real",
+      "d": "2026-10-22",
+      "n": [
+        "03",
+        "77",
+        "87"
+      ]
+    },
+    {
+      "gameId": "la-primera/quiniela",
+      "d": "2026-10-22",
+      "n": [
+        "83",
+        "59",
+        "56"
+      ]
+    },
+    {
+      "gameId": "la-suerte/quiniela",
+      "d": "2026-10-22",
+      "n": [
+        "40",
+        "19",
+        "94"
+      ]
+    },
+    {
+      "gameId": "florida/tarde",
+      "d": "2026-10-22",
+      "n": [
+        "27",
+        "79",
+        "28"
+      ]
+    },
+    {
+      "gameId": "anguila/10am",
+      "d": "2026-10-22",
+      "n": [
+        "31",
+        "62",
+        "95"
+      ]
+    },
+    {
+      "gameId": "anguila/1pm",
+      "d": "2026-10-22",
+      "n": [
+        "12",
+        "85",
+        "02"
+      ]
+    },
+    {
+      "gameId": "king-lottery/dia",
+      "d": "2026-10-22",
+      "n": [
+        "62",
+        "51",
+        "69"
+      ]
+    },
+    {
+      "gameId": "real/loto-pool-real",
+      "d": "2026-10-22",
+      "n": [
         "50",
-        "57"
+        "84",
+        "61",
+        "62"
+      ]
+    },
+    {
+      "gameId": "real/nueva-yol",
+      "d": "2026-10-22",
+      "n": [
+        "70",
+        "47",
+        "13"
+      ]
+    },
+    {
+      "gameId": "real/tu-fecha",
+      "d": "2026-10-22",
+      "n": [
+        "29"
+      ]
+    },
+    {
+      "gameId": "lotedom/agarra-4",
+      "d": "2026-10-22",
+      "n": [
+        "24",
+        "47",
+        "44",
+        "80"
       ]
     }
   ],
@@ -653,14 +748,6 @@
       "reason": "ya actualizado"
     },
     {
-      "gameId": "lotedom/quiniela",
-      "reason": "ya actualizado"
-    },
-    {
-      "gameId": "lotedom/quemaito",
-      "reason": "ya actualizado"
-    },
-    {
       "gameId": "nacional/gana-mas",
       "reason": "ya actualizado"
     },
@@ -670,10 +757,6 @@
     },
     {
       "gameId": "leidsa/quiniela-pale",
-      "reason": "ya actualizado"
-    },
-    {
-      "gameId": "real/quiniela-real",
       "reason": "ya actualizado"
     },
     {
@@ -693,19 +776,11 @@
       "reason": "ya actualizado"
     },
     {
-      "gameId": "la-primera/quiniela",
-      "reason": "ya actualizado"
-    },
-    {
       "gameId": "la-primera/quiniela-noche",
       "reason": "ya actualizado"
     },
     {
       "gameId": "la-primera/lotto-5",
-      "reason": "ya actualizado"
-    },
-    {
-      "gameId": "la-suerte/quiniela",
       "reason": "ya actualizado"
     },
     {
@@ -717,7 +792,7 @@
       "reason": "ya actualizado"
     },
     {
-      "gameId": "florida/tarde",
+      "gameId": "new-york/noche",
       "reason": "ya actualizado"
     },
     {
@@ -729,11 +804,7 @@
       "reason": "ya actualizado"
     },
     {
-      "gameId": "anguila/10am",
-      "reason": "ya actualizado"
-    },
-    {
-      "gameId": "anguila/1pm",
+      "gameId": "americanas/Powerball",
       "reason": "ya actualizado"
     },
     {
@@ -745,15 +816,7 @@
       "reason": "ya actualizado"
     },
     {
-      "gameId": "king-lottery/dia",
-      "reason": "ya actualizado"
-    },
-    {
       "gameId": "king-lottery/noche",
-      "reason": "ya actualizado"
-    },
-    {
-      "gameId": "real/loto-pool-real",
       "reason": "ya actualizado"
     },
     {
@@ -761,19 +824,7 @@
       "reason": "ya actualizado"
     },
     {
-      "gameId": "real/nueva-yol",
-      "reason": "ya actualizado"
-    },
-    {
-      "gameId": "real/tu-fecha",
-      "reason": "ya actualizado"
-    },
-    {
       "gameId": "nacional/juega-mas-pega-mas",
-      "reason": "ya actualizado"
-    },
-    {
-      "gameId": "lotedom/agarra-4",
       "reason": "ya actualizado"
     }
   ]
