@@ -1,5 +1,5 @@
 {
-  "at": "2026-10-24T02:14:04.858Z",
+  "at": "2026-10-24T07:27:31.780Z",
   "verified": [
     {
       "gameId": "leidsa/pega-3-mas",
@@ -343,11 +343,11 @@
     },
     {
       "gameId": "new-york/noche",
-      "d": "2026-10-22",
+      "d": "2026-10-23",
       "n": [
-        "62",
-        "62",
-        "47"
+        "96",
+        "30",
+        "69"
       ],
       "bonus": null,
       "super": null,
@@ -388,15 +388,15 @@
     },
     {
       "gameId": "americanas/Mega Millions",
-      "d": "2026-10-20",
+      "d": "2026-10-23",
       "n": [
-        "13",
-        "28",
-        "33",
-        "35",
-        "48"
+        "03",
+        "07",
+        "46",
+        "49",
+        "51"
       ],
-      "bonus": "03",
+      "bonus": "05",
       "super": null,
       "extra": null,
       "sources": [
@@ -615,116 +615,39 @@
   "errors": [],
   "applied": [
     {
-      "gameId": "leidsa/pega-3-mas",
+      "gameId": "new-york/noche",
       "d": "2026-10-23",
       "n": [
-        "09",
-        "05",
-        "30"
+        "96",
+        "30",
+        "69"
       ]
     },
     {
-      "gameId": "leidsa/loto-pool",
+      "gameId": "americanas/Mega Millions",
       "d": "2026-10-23",
       "n": [
-        "14",
-        "16",
-        "19",
-        "28",
-        "31"
-      ]
-    },
-    {
-      "gameId": "leidsa/super-kino",
-      "d": "2026-10-23",
-      "n": [
-        "06",
-        "07",
-        "09",
-        "13",
-        "16",
-        "20",
-        "22",
-        "26",
-        "28",
-        "39",
-        "40",
-        "55",
-        "59",
-        "63",
-        "70",
-        "72",
-        "74",
-        "77",
-        "81",
-        "84"
-      ]
-    },
-    {
-      "gameId": "nacional/quiniela-noche",
-      "d": "2026-10-23",
-      "n": [
-        "43",
-        "39",
-        "61"
-      ]
-    },
-    {
-      "gameId": "leidsa/quiniela-pale",
-      "d": "2026-10-23",
-      "n": [
-        "07",
-        "93",
-        "12"
-      ]
-    },
-    {
-      "gameId": "loteka/quiniela-loteka",
-      "d": "2026-10-23",
-      "n": [
-        "53",
-        "85",
-        "27"
-      ]
-    },
-    {
-      "gameId": "florida/noche",
-      "d": "2026-10-23",
-      "n": [
-        "05",
-        "60",
-        "55"
-      ]
-    },
-    {
-      "gameId": "anguila/6pm",
-      "d": "2026-10-23",
-      "n": [
-        "00",
-        "76",
-        "78"
-      ]
-    },
-    {
-      "gameId": "anguila/9pm",
-      "d": "2026-10-23",
-      "n": [
-        "50",
         "03",
-        "94"
-      ]
-    },
-    {
-      "gameId": "king-lottery/noche",
-      "d": "2026-10-23",
-      "n": [
-        "01",
-        "28",
-        "55"
+        "07",
+        "46",
+        "49",
+        "51"
       ]
     }
   ],
   "skipped": [
+    {
+      "gameId": "leidsa/pega-3-mas",
+      "reason": "ya actualizado"
+    },
+    {
+      "gameId": "leidsa/loto-pool",
+      "reason": "ya actualizado"
+    },
+    {
+      "gameId": "leidsa/super-kino",
+      "reason": "ya actualizado"
+    },
     {
       "gameId": "leidsa/loto",
       "reason": "ya actualizado"
@@ -742,11 +665,23 @@
       "reason": "ya actualizado"
     },
     {
+      "gameId": "nacional/quiniela-noche",
+      "reason": "ya actualizado"
+    },
+    {
+      "gameId": "leidsa/quiniela-pale",
+      "reason": "ya actualizado"
+    },
+    {
       "gameId": "real/quiniela-real",
       "reason": "ya actualizado"
     },
     {
       "gameId": "real/loto-real",
+      "reason": "ya actualizado"
+    },
+    {
+      "gameId": "loteka/quiniela-loteka",
       "reason": "ya actualizado"
     },
     {
@@ -782,15 +717,11 @@
       "reason": "ya actualizado"
     },
     {
-      "gameId": "new-york/noche",
-      "reason": "ya actualizado"
-    },
-    {
       "gameId": "florida/tarde",
       "reason": "ya actualizado"
     },
     {
-      "gameId": "americanas/Mega Millions",
+      "gameId": "florida/noche",
       "reason": "ya actualizado"
     },
     {
@@ -806,7 +737,19 @@
       "reason": "ya actualizado"
     },
     {
+      "gameId": "anguila/6pm",
+      "reason": "ya actualizado"
+    },
+    {
+      "gameId": "anguila/9pm",
+      "reason": "ya actualizado"
+    },
+    {
       "gameId": "king-lottery/dia",
+      "reason": "ya actualizado"
+    },
+    {
+      "gameId": "king-lottery/noche",
       "reason": "ya actualizado"
     },
     {
